@@ -5,113 +5,157 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    android:background="@color/background_light"
     tools:context=".CalendarActivity">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardMonthHeader"
+    <ImageButton
+        android:id="@+id/buttonPrevMonth"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@android:drawable/ic_media_previous"
+        android:contentDescription="Previous month"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/textViewMonthYear" />
+
+    <TextView
+        android:id="@+id/textViewMonthYear"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:text="January 2024"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginBottom="16dp"
-        app:cardCornerRadius="16dp"
-        app:cardElevation="6dp"
-        app:cardBackgroundColor="@color/background_card"
+        app:layout_constraintEnd_toStartOf="@id/buttonNextMonth"
+        app:layout_constraintStart_toEndOf="@id/buttonPrevMonth"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/buttonNextMonth"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@android:drawable/ic_media_next"
+        android:contentDescription="Next month"
+        android:background="?attr/selectableItemBackgroundBorderless"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/textViewMonthYear" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center"
-            android:padding="20dp">
-
-            <TextView
-                android:id="@+id/textViewMonthYear"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="January 2024"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                android:textColor="@color/text_primary" />
-
-        </LinearLayout>
-
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardCalendar"
+    <LinearLayout
+        android:id="@+id/layoutWeekdayHeaders"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
         android:layout_marginTop="16dp"
-        app:cardCornerRadius="16dp"
-        app:cardElevation="6dp"
-        app:cardBackgroundColor="@color/background_card"
-        app:layout_constraintBottom_toTopOf="@id/cardSelectedDate"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cardMonthHeader">
+        app:layout_constraintTop_toBottomOf="@id/textViewMonthYear">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerViewCalendar"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Sun"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:gravity="center"
             android:padding="8dp" />
 
-    </androidx.cardview.widget.CardView>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Mon"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:padding="8dp" />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardSelectedDate"
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Tue"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:padding="8dp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Wed"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:padding="8dp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Thu"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:padding="8dp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Fri"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:padding="8dp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Sat"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:padding="8dp" />
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewCalendar"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        app:cardCornerRadius="16dp"
-        app:cardElevation="6dp"
-        app:cardBackgroundColor="@color/background_card"
-        app:layout_constraintBottom_toTopOf="@id/recyclerViewDayHabits"
+        android:layout_height="400dp"
+        android:layout_marginTop="8dp"
+        android:nestedScrollingEnabled="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cardCalendar">
+        app:layout_constraintTop_toBottomOf="@id/layoutWeekdayHeaders" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp">
+    <TextView
+        android:id="@+id/textViewSelectedDate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Selected: None"
+        android:textSize="16sp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/recyclerViewCalendar" />
 
-            <TextView
-                android:id="@+id/textViewSelectedDate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Selected: None"
-                android:textSize="16sp"
-                android:textColor="@color/text_primary"
-                android:textStyle="bold" />
-
-        </LinearLayout>
-
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardDayHabits"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewDayHabits"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="16dp"
-        app:cardCornerRadius="16dp"
-        app:cardElevation="6dp"
-        app:cardBackgroundColor="@color/background_card"
+        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cardSelectedDate">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerViewDayHabits"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="16dp" />
-
-    </androidx.cardview.widget.CardView>
+        app:layout_constraintTop_toBottomOf="@id/textViewSelectedDate" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+

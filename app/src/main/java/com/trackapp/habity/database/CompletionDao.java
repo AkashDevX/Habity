@@ -20,5 +20,11 @@ public interface CompletionDao {
     
     @Query("SELECT * FROM completions WHERE habitId = :habitId AND date = :date")
     CompletionEntity getCompletion(String date, long habitId);
+    
+    @Query("SELECT * FROM completions WHERE date >= :startDate AND date <= :endDate AND done = 1")
+    List<CompletionEntity> getCompletedDatesInRange(String startDate, String endDate);
+    
+    @Query("SELECT * FROM completions WHERE date >= :startDate AND date <= :endDate")
+    List<CompletionEntity> getAllCompletionsInRange(String startDate, String endDate);
 }
 

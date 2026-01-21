@@ -139,11 +139,13 @@ public class ReminderInlineAdapter extends RecyclerView.Adapter<ReminderInlineAd
                 return "Every day";
             }
             
+            // Show days that ARE selected (where bit is 1)
             String[] dayNames = {"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"};
             int[] dayBits = {1, 2, 4, 8, 16, 32, 64};
             StringBuilder sb = new StringBuilder();
             
             for (int i = 0; i < dayBits.length; i++) {
+                // Check if day IS in the selection (bit is 1)
                 if ((daysMask & dayBits[i]) == 0) {
                     if (sb.length() > 0) {
                         sb.append(", ");

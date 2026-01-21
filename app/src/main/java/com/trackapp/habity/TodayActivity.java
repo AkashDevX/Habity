@@ -22,6 +22,9 @@ public class TodayActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_today);
         
+        // Override transition
+        overridePendingTransition(R.anim.slide_in_right, android.R.anim.fade_out);
+        
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setTitle("Today");
@@ -30,7 +33,7 @@ public class TodayActivity extends AppCompatActivity {
         // Initialize ViewModel
         habitViewModel = new ViewModelProvider(this).get(HabitViewModel.class);
         
-        // Setup RecyclerView
+        // Setup RecyclerView with animation
         recyclerViewHabits = findViewById(R.id.recyclerViewHabits);
         habitAdapter = new HabitAdapter(habitViewModel, this);
         habitAdapter.setOnRemindersClickListener(habitId -> {
@@ -38,20 +41,39 @@ public class TodayActivity extends AppCompatActivity {
             Intent intent = new Intent(TodayActivity.this, AddEditHabitActivity.class);
             intent.putExtra("habitId", habitId);
             startActivity(intent);
+            overridePendingTransition(R.anim.slide_in_right, android.R.anim.fade_out);
         });
         
-        recyclerViewHabits.setLayoutManager(new LinearLayoutManager(this));
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        recyclerViewHabits.setLayoutManager(layoutManager);
         recyclerViewHabits.setAdapter(habitAdapter);
         
         // Observe habits
         habitViewModel.getAllHabits().observe(this, habits -> {
             habitAdapter.setHabits(habits);
+            // Animate items
+            animateRecyclerViewItems();
         });
+    }
+    
+    private void animateRecyclerViewItems() {
+        for (int i = 0; i < recyclerViewHabits.getChildCount(); i++) {
+            View child = recyclerViewHabits.getChildAt(i);
+            child.setAlpha(0f);
+            child.setTranslationY(30f);
+            child.animate()
+                .alpha(1f)
+                .translationY(0f)
+                .setDuration(400)
+                .setStartDelay(i * 100)
+                .start();
+        }
     }
     
     @Override
     public boolean onSupportNavigateUp() {
         finish();
+        overridePendingTransition(android.R.anim.fade_in, R.anim.slide_in_right);
         return true;
     }
 }

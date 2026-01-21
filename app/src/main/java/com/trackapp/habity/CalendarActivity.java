@@ -1,6 +1,7 @@
 package com.trackapp.habity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -29,6 +30,9 @@ public class CalendarActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar);
         
+        // Override transition
+        overridePendingTransition(R.anim.slide_in_right, android.R.anim.fade_out);
+        
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setTitle("Calendar");
@@ -48,6 +52,29 @@ public class CalendarActivity extends AppCompatActivity {
         
         // Setup day habits list
         recyclerViewDayHabits.setLayoutManager(new LinearLayoutManager(this));
+        
+        // Animate cards
+        animateCards();
+    }
+    
+    private void animateCards() {
+        View cardMonthHeader = findViewById(R.id.cardMonthHeader);
+        View cardCalendar = findViewById(R.id.cardCalendar);
+        View cardSelectedDate = findViewById(R.id.cardSelectedDate);
+        View cardDayHabits = findViewById(R.id.cardDayHabits);
+        
+        cardMonthHeader.setAlpha(0f);
+        cardMonthHeader.setTranslationY(-20f);
+        cardMonthHeader.animate().alpha(1f).translationY(0f).setDuration(400).start();
+        
+        cardCalendar.setAlpha(0f);
+        cardCalendar.animate().alpha(1f).setDuration(400).setStartDelay(150).start();
+        
+        cardSelectedDate.setAlpha(0f);
+        cardSelectedDate.animate().alpha(1f).setDuration(400).setStartDelay(300).start();
+        
+        cardDayHabits.setAlpha(0f);
+        cardDayHabits.animate().alpha(1f).setDuration(400).setStartDelay(450).start();
     }
     
     private void updateMonthDisplay() {
@@ -85,6 +112,7 @@ public class CalendarActivity extends AppCompatActivity {
     @Override
     public boolean onSupportNavigateUp() {
         finish();
+        overridePendingTransition(android.R.anim.fade_in, R.anim.slide_in_right);
         return true;
     }
     

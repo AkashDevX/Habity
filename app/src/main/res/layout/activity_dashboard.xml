@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
+    android:background="@color/background_purple"
     tools:context=".DashboardActivity">
 
     <LinearLayout
@@ -13,63 +14,103 @@
         android:orientation="vertical"
         android:padding="24dp">
 
-        <TextView
+        <!-- Header Section -->
+        <LinearLayout
+            android:id="@+id/headerSection"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Habity"
-            android:textSize="32sp"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:layout_marginBottom="8dp" />
+            android:orientation="vertical"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="40dp">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Track your habits, build your routine"
-            android:textSize="16sp"
-            android:gravity="center"
-            android:textColor="?android:attr/textColorSecondary"
-            android:layout_marginBottom="32dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Habity"
+                android:textSize="42sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_white"
+                android:letterSpacing="0.05"
+                android:layout_marginBottom="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Track your habits, build your routine"
+                android:textSize="16sp"
+                android:textColor="@color/text_white_secondary"
+                android:gravity="center" />
+
+        </LinearLayout>
 
         <!-- Row 1: Today and Calendar -->
         <LinearLayout
+            android:id="@+id/row1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="16dp">
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/tileToday"
                 android:layout_width="0dp"
-                android:layout_height="120dp"
+                android:layout_height="200dp"
                 android:layout_weight="1"
                 android:layout_marginEnd="8dp"
-                app:cardCornerRadius="12dp"
+                app:cardCornerRadius="20dp"
                 app:cardElevation="4dp"
+                app:cardBackgroundColor="@color/card_purple"
                 android:clickable="true"
                 android:focusable="true"
-                android:foreground="?android:attr/selectableItemBackground">
+                android:foreground="?attr/selectableItemBackground"
+                android:stateListAnimator="@animator/card_elevation">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
-                    android:gravity="center"
-                    android:padding="16dp">
+                    android:paddingTop="20dp"
+                    android:paddingBottom="24dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:gravity="center">
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="📅"
-                        android:textSize="32sp"
-                        android:layout_marginBottom="8dp" />
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_gravity="center">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Today"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
+                        <TextView
+                            android:layout_width="64dp"
+                            android:layout_height="64dp"
+                            android:text="📅"
+                            android:textSize="40sp"
+                            android:gravity="center"
+                            android:background="@drawable/icon_background_blue"
+                            android:layout_marginBottom="12dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Today"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/text_white"
+                            android:layout_marginBottom="6dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="View your daily habits"
+                            android:textSize="15sp"
+                            android:textColor="#FFFFFF"
+                            android:gravity="center"
+                            android:maxLines="2"
+                            android:ellipsize="none"
+                            android:includeFontPadding="false" />
+                    </LinearLayout>
 
                 </LinearLayout>
 
@@ -78,35 +119,62 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/tileCalendar"
                 android:layout_width="0dp"
-                android:layout_height="120dp"
+                android:layout_height="200dp"
                 android:layout_weight="1"
                 android:layout_marginStart="8dp"
-                app:cardCornerRadius="12dp"
+                app:cardCornerRadius="20dp"
                 app:cardElevation="4dp"
+                app:cardBackgroundColor="@color/card_purple"
                 android:clickable="true"
                 android:focusable="true"
-                android:foreground="?android:attr/selectableItemBackground">
+                android:foreground="?attr/selectableItemBackground">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
-                    android:gravity="center"
-                    android:padding="16dp">
+                    android:paddingTop="20dp"
+                    android:paddingBottom="24dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:gravity="center">
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="📆"
-                        android:textSize="32sp"
-                        android:layout_marginBottom="8dp" />
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_gravity="center">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Calendar"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
+                        <TextView
+                            android:layout_width="64dp"
+                            android:layout_height="64dp"
+                            android:text="📆"
+                            android:textSize="40sp"
+                            android:gravity="center"
+                            android:background="@drawable/icon_background_blue"
+                            android:layout_marginBottom="12dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Calendar"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/text_white"
+                            android:layout_marginBottom="6dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Track your progress"
+                            android:textSize="15sp"
+                            android:textColor="#FFFFFF"
+                            android:gravity="center"
+                            android:maxLines="2"
+                            android:ellipsize="none"
+                            android:includeFontPadding="false" />
+                    </LinearLayout>
 
                 </LinearLayout>
 
@@ -116,43 +184,71 @@
 
         <!-- Row 2: Stats and About -->
         <LinearLayout
+            android:id="@+id/row2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="16dp">
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/tileStats"
                 android:layout_width="0dp"
-                android:layout_height="120dp"
+                android:layout_height="200dp"
                 android:layout_weight="1"
                 android:layout_marginEnd="8dp"
-                app:cardCornerRadius="12dp"
+                app:cardCornerRadius="20dp"
                 app:cardElevation="4dp"
+                app:cardBackgroundColor="@color/card_purple"
                 android:clickable="true"
                 android:focusable="true"
-                android:foreground="?android:attr/selectableItemBackground">
+                android:foreground="?attr/selectableItemBackground">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
-                    android:gravity="center"
-                    android:padding="16dp">
+                    android:paddingTop="20dp"
+                    android:paddingBottom="24dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:gravity="center">
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="📊"
-                        android:textSize="32sp"
-                        android:layout_marginBottom="8dp" />
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_gravity="center">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Stats"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
+                        <TextView
+                            android:layout_width="64dp"
+                            android:layout_height="64dp"
+                            android:text="📊"
+                            android:textSize="40sp"
+                            android:gravity="center"
+                            android:background="@drawable/icon_background_purple"
+                            android:layout_marginBottom="12dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Stats"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/text_white"
+                            android:layout_marginBottom="6dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="View detailed analytics"
+                            android:textSize="15sp"
+                            android:textColor="#FFFFFF"
+                            android:gravity="center"
+                            android:maxLines="2"
+                            android:ellipsize="none"
+                            android:includeFontPadding="false" />
+                    </LinearLayout>
 
                 </LinearLayout>
 
@@ -161,35 +257,62 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/tileAbout"
                 android:layout_width="0dp"
-                android:layout_height="120dp"
+                android:layout_height="200dp"
                 android:layout_weight="1"
                 android:layout_marginStart="8dp"
-                app:cardCornerRadius="12dp"
+                app:cardCornerRadius="20dp"
                 app:cardElevation="4dp"
+                app:cardBackgroundColor="@color/card_purple"
                 android:clickable="true"
                 android:focusable="true"
-                android:foreground="?android:attr/selectableItemBackground">
+                android:foreground="?attr/selectableItemBackground">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
-                    android:gravity="center"
-                    android:padding="16dp">
+                    android:paddingTop="20dp"
+                    android:paddingBottom="24dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:gravity="center">
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="ℹ️"
-                        android:textSize="32sp"
-                        android:layout_marginBottom="8dp" />
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_gravity="center">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="About"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
+                        <TextView
+                            android:layout_width="64dp"
+                            android:layout_height="64dp"
+                            android:text="ℹ️"
+                            android:textSize="40sp"
+                            android:gravity="center"
+                            android:background="@drawable/icon_background_purple"
+                            android:layout_marginBottom="12dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="About"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/text_white"
+                            android:layout_marginBottom="6dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Learn more about Habity"
+                            android:textSize="15sp"
+                            android:textColor="#FFFFFF"
+                            android:gravity="center"
+                            android:maxLines="2"
+                            android:ellipsize="none"
+                            android:includeFontPadding="false" />
+                    </LinearLayout>
 
                 </LinearLayout>
 
@@ -201,35 +324,35 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/tileAddHabit"
             android:layout_width="match_parent"
-            android:layout_height="120dp"
-            app:cardCornerRadius="12dp"
+            android:layout_height="140dp"
+            app:cardCornerRadius="20dp"
             app:cardElevation="4dp"
+            app:cardBackgroundColor="@color/card_purple"
             android:clickable="true"
             android:focusable="true"
-            android:foreground="?android:attr/selectableItemBackground"
-            app:cardBackgroundColor="?attr/colorPrimary">
+            android:foreground="?attr/selectableItemBackground">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
                 android:gravity="center"
-                android:padding="16dp">
+                android:padding="20dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="➕"
-                    android:textSize="32sp"
+                    android:textSize="48sp"
                     android:layout_marginEnd="16dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Add New Habit"
-                    android:textSize="18sp"
+                    android:textSize="20sp"
                     android:textStyle="bold"
-                    android:textColor="@android:color/white" />
+                    android:textColor="@color/text_white" />
 
             </LinearLayout>
 
@@ -238,4 +361,3 @@
     </LinearLayout>
 
 </androidx.core.widget.NestedScrollView>
-

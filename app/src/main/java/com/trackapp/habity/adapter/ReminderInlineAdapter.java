@@ -144,7 +144,7 @@ public class ReminderInlineAdapter extends RecyclerView.Adapter<ReminderInlineAd
             StringBuilder sb = new StringBuilder();
             
             for (int i = 0; i < dayBits.length; i++) {
-                if ((daysMask & dayBits[i]) != 0) {
+                if ((daysMask & dayBits[i]) == 0) {
                     if (sb.length() > 0) {
                         sb.append(", ");
                     }

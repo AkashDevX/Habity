@@ -23,6 +23,9 @@ public interface HabitDao {
     @Query("SELECT * FROM habits ORDER BY id DESC")
     LiveData<List<HabitEntity>> getAllHabits();
     
+    @Query("SELECT * FROM habits ORDER BY id DESC")
+    List<HabitEntity> getAllHabitsSync();
+    
     @Query("SELECT * FROM habits WHERE id = :id")
     HabitEntity getHabitById(long id);
 }

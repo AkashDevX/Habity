@@ -17,24 +17,47 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Habity">
         <activity
-            android:name=".MainActivity"
+            android:name=".DashboardActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         
         <activity
+            android:name=".TodayActivity"
+            android:exported="false"
+            android:parentActivityName=".DashboardActivity" />
+        
+        <activity
+            android:name=".CalendarActivity"
+            android:exported="false"
+            android:parentActivityName=".DashboardActivity" />
+        
+        <activity
+            android:name=".StatsActivity"
+            android:exported="false"
+            android:parentActivityName=".DashboardActivity" />
+        
+        <activity
+            android:name=".AboutActivity"
+            android:exported="false"
+            android:parentActivityName=".DashboardActivity" />
+        
+        <activity
             android:name=".AddEditHabitActivity"
             android:exported="false"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".DashboardActivity" />
         
         <activity
             android:name=".HabitRemindersActivity"
             android:exported="false"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".DashboardActivity" />
+        
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
         
         <!-- ReminderReceiver for handling alarm triggers -->
         <receiver

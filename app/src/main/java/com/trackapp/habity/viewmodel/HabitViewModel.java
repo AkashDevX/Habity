@@ -11,6 +11,8 @@ import com.trackapp.habity.database.HabitDao;
 import com.trackapp.habity.database.HabitEntity;
 import com.trackapp.habity.database.CompletionDao;
 import com.trackapp.habity.database.CompletionEntity;
+import com.trackapp.habity.database.ReminderDao;
+import com.trackapp.habity.database.ReminderEntity;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -22,6 +24,7 @@ import java.util.concurrent.Executors;
 public class HabitViewModel extends AndroidViewModel {
     private HabitDao habitDao;
     private CompletionDao completionDao;
+    private ReminderDao reminderDao;
     private ExecutorService executor;
     private LiveData<List<HabitEntity>> allHabits;
     
@@ -32,6 +35,7 @@ public class HabitViewModel extends AndroidViewModel {
         AppDatabase db = AppDatabase.getDatabase(application);
         habitDao = db.habitDao();
         completionDao = db.completionDao();
+        reminderDao = db.reminderDao();
         executor = Executors.newSingleThreadExecutor();
         allHabits = habitDao.getAllHabits();
     }
@@ -64,7 +68,18 @@ public class HabitViewModel extends AndroidViewModel {
     public void toggleCompletion(long habitId, boolean done) {
         executor.execute(() -> {
             String today = dateFormat.format(new Date());
-            CompletionEntity completion = new CompletionEntity(today, habitId, done);
+            
+            // Get the first enabled reminder for this habit (if any)
+            Long reminderId = null;
+            List<ReminderEntity> reminders = reminderDao.getRemindersForHabit(habitId);
+            for (ReminderEntity reminder : reminders) {
+                if (reminder.enabled) {
+                    reminderId = reminder.id;
+                    break; // Use the first enabled reminder
+                }
+            }
+            
+            CompletionEntity completion = new CompletionEntity(today, habitId, reminderId, done);
             completionDao.upsertCompletion(completion);
         });
     }

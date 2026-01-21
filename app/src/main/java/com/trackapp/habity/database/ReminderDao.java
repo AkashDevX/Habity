@@ -30,5 +30,11 @@ public interface ReminderDao {
     
     @Query("DELETE FROM reminders WHERE habitId = :habitId")
     void deleteRemindersForHabit(long habitId);
+    
+    @Query("SELECT * FROM reminders WHERE date = :date")
+    List<ReminderEntity> getRemindersForDate(String date);
+    
+    @Query("SELECT * FROM reminders WHERE habitId = :habitId AND date = :date")
+    List<ReminderEntity> getRemindersForHabitAndDate(long habitId, String date);
 }
 

@@ -91,8 +91,11 @@ public class HabitRemindersActivity extends AppCompatActivity {
     
     private void showAddReminderDialog() {
         AddReminderDialog dialog = AddReminderDialog.newInstance((hour, minute, daysMask) -> {
+            // Set date to today's date
+            java.text.SimpleDateFormat dateFormat = new java.text.SimpleDateFormat("yyyy-MM-dd", java.util.Locale.getDefault());
+            String today = dateFormat.format(new java.util.Date());
             com.trackapp.habity.database.ReminderEntity reminder = 
-                new com.trackapp.habity.database.ReminderEntity(habitId, hour, minute, daysMask, true);
+                new com.trackapp.habity.database.ReminderEntity(habitId, today, hour, minute, daysMask, true);
             reminderViewModel.insertReminder(reminder, insertedReminder -> {
                 // Schedule the reminder after insertion
                 com.trackapp.habity.reminders.ReminderScheduler.scheduleReminder(

@@ -134,6 +134,9 @@ public class AddEditHabitActivity extends AppCompatActivity {
             reminder.minute = minute;
             reminder.daysMask = daysMask;
             reminder.enabled = true;
+            // Set date to today's date
+            java.text.SimpleDateFormat dateFormat = new java.text.SimpleDateFormat("yyyy-MM-dd", java.util.Locale.getDefault());
+            reminder.date = dateFormat.format(new java.util.Date());
             reminderAdapter.addReminder(reminder);
         });
         

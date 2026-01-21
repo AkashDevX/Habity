@@ -37,86 +37,76 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/timePicker" />
 
-    <LinearLayout
-        android:id="@+id/linearLayoutDays"
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chipGroupDays"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:orientation="vertical"
+        app:singleLine="false"
+        app:chipSpacing="8dp"
+        app:chipSpacingHorizontal="8dp"
+        app:chipSpacingVertical="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textViewRepeatDaysLabel">
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipSunday"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:text="Sun"
+            android:checkable="true"
+            style="@style/Widget.MaterialComponents.Chip.Choice" />
 
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chipSunday"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="4dp"
-                android:layout_marginBottom="4dp"
-                android:text="Sun"
-                android:checkable="true" />
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipMonday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mon"
+            android:checkable="true"
+            style="@style/Widget.MaterialComponents.Chip.Choice" />
 
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chipMonday"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="4dp"
-                android:layout_marginBottom="4dp"
-                android:text="Mon"
-                android:checkable="true" />
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipTuesday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tue"
+            android:checkable="true"
+            style="@style/Widget.MaterialComponents.Chip.Choice" />
 
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chipTuesday"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="4dp"
-                android:layout_marginBottom="4dp"
-                android:text="Tue"
-                android:checkable="true" />
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipWednesday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Wed"
+            android:checkable="true"
+            style="@style/Widget.MaterialComponents.Chip.Choice" />
 
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chipWednesday"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="4dp"
-                android:layout_marginBottom="4dp"
-                android:text="Wed"
-                android:checkable="true" />
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipThursday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Thu"
+            android:checkable="true"
+            style="@style/Widget.MaterialComponents.Chip.Choice" />
 
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chipThursday"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="4dp"
-                android:layout_marginBottom="4dp"
-                android:text="Thu"
-                android:checkable="true" />
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipFriday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fri"
+            android:checkable="true"
+            style="@style/Widget.MaterialComponents.Chip.Choice" />
 
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chipFriday"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="4dp"
-                android:layout_marginBottom="4dp"
-                android:text="Fri"
-                android:checkable="true" />
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipSaturday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sat"
+            android:checkable="true"
+            style="@style/Widget.MaterialComponents.Chip.Choice" />
 
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chipSaturday"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="4dp"
-                android:text="Sat"
-                android:checkable="true" />
-
-        </LinearLayout>
-
-    </LinearLayout>
+    </com.google.android.material.chip.ChipGroup>
 
     <LinearLayout
         android:id="@+id/linearLayoutButtons"
@@ -127,7 +117,7 @@
         android:gravity="end"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/linearLayoutDays">
+        app:layout_constraintTop_toBottomOf="@id/chipGroupDays">
 
         <Button
             android:id="@+id/buttonCancel"

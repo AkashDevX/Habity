@@ -47,6 +47,9 @@ public class AddEditHabitActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_edit_habit_new);
         
+        // Override transition
+        overridePendingTransition(R.anim.slide_in_right, android.R.anim.fade_out);
+        
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
@@ -101,6 +104,9 @@ public class AddEditHabitActivity extends AppCompatActivity {
         buttonAddReminder.setOnClickListener(v -> showAddReminderDialog());
         
         buttonSave.setOnClickListener(v -> saveHabit());
+        
+        // Animate views on load (after all views are initialized)
+        animateViews();
     }
     
     private void loadHabitData() {
@@ -239,7 +245,34 @@ public class AddEditHabitActivity extends AppCompatActivity {
     @Override
     public boolean onSupportNavigateUp() {
         finish();
+        overridePendingTransition(android.R.anim.fade_in, R.anim.slide_in_right);
         return true;
+    }
+    
+    private void animateViews() {
+        editTextTitle.setAlpha(0f);
+        editTextTitle.setTranslationY(20f);
+        editTextTitle.animate().alpha(1f).translationY(0f).setDuration(400).start();
+        
+        switchHabitEnabled.setAlpha(0f);
+        switchHabitEnabled.animate().alpha(1f).setDuration(400).setStartDelay(100).start();
+        
+        recyclerViewReminders.setAlpha(0f);
+        recyclerViewReminders.animate().alpha(1f).setDuration(400).setStartDelay(200).start();
+        
+        buttonAddReminder.setAlpha(0f);
+        buttonAddReminder.animate().alpha(1f).setDuration(400).setStartDelay(300).start();
+        
+        buttonSave.setAlpha(0f);
+        buttonSave.setScaleX(0.9f);
+        buttonSave.setScaleY(0.9f);
+        buttonSave.animate()
+            .alpha(1f)
+            .scaleX(1f)
+            .scaleY(1f)
+            .setDuration(400)
+            .setStartDelay(400)
+            .start();
     }
     
     @Override

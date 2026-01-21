@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
+    android:background="@color/background_light"
     tools:context=".AddEditHabitActivity">
 
     <LinearLayout
@@ -76,6 +77,8 @@
             android:layout_height="wrap_content"
             android:text="+ Add Reminder Time"
             android:layout_marginBottom="24dp"
+            android:textColor="@color/primary"
+            android:backgroundTint="@android:color/transparent"
             style="?android:attr/buttonStyleSmall" />
 
         <!-- Save Button -->
@@ -83,7 +86,12 @@
             android:id="@+id/buttonSave"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Save Habit" />
+            android:text="Save Habit"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:padding="16dp"
+            android:backgroundTint="@color/primary"
+            android:textColor="@android:color/white" />
 
     </LinearLayout>
 

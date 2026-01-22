@@ -48,8 +48,8 @@ public class TodayActivity extends AppCompatActivity {
         recyclerViewHabits.setLayoutManager(layoutManager);
         recyclerViewHabits.setAdapter(habitAdapter);
         
-        // Observe habits
-        habitViewModel.getAllHabits().observe(this, habits -> {
+        // Observe habits for today only
+        habitViewModel.getHabitsForToday().observe(this, habits -> {
             habitAdapter.setHabits(habits);
             // Animate items
             animateRecyclerViewItems();

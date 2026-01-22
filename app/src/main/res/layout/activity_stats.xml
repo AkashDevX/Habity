@@ -4,7 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
+    android:paddingTop="48dp"
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp"
+    android:paddingBottom="16dp"
     android:background="@color/background_purple"
     tools:context=".StatsActivity">
 
@@ -53,7 +56,9 @@
                         android:text="0"
                         android:textSize="32sp"
                         android:textStyle="bold"
-                        android:textColor="@android:color/white" />
+                        android:textColor="@android:color/white"
+                        android:fontFamily="@font/font_family_poppins"
+                        android:fontWeight="700" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -101,7 +106,9 @@
                         android:text="0"
                         android:textSize="32sp"
                         android:textStyle="bold"
-                        android:textColor="@android:color/white" />
+                        android:textColor="@android:color/white"
+                        android:fontFamily="@font/font_family_poppins"
+                        android:fontWeight="700" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -148,7 +155,9 @@
                         android:text="0%"
                         android:textSize="32sp"
                         android:textStyle="bold"
-                        android:textColor="@android:color/white" />
+                        android:textColor="@android:color/white"
+                        android:fontFamily="@font/font_family_poppins"
+                        android:fontWeight="700" />
 
                 </LinearLayout>
 
@@ -195,7 +204,9 @@
                         android:text="0"
                         android:textSize="28sp"
                         android:textStyle="bold"
-                        android:textColor="@color/text_white" />
+                        android:textColor="@color/text_white"
+                        android:fontFamily="@font/font_family_poppins"
+                        android:fontWeight="700" />
 
                 </LinearLayout>
 
@@ -234,7 +245,9 @@
                         android:text="0%"
                         android:textSize="28sp"
                         android:textStyle="bold"
-                        android:textColor="@color/text_white" />
+                        android:textColor="@color/text_white"
+                        android:fontFamily="@font/font_family_poppins"
+                        android:fontWeight="700" />
 
                 </LinearLayout>
 
@@ -272,7 +285,9 @@
                         android:text="--"
                         android:textSize="20sp"
                         android:textStyle="bold"
-                        android:textColor="@color/text_white" />
+                        android:textColor="@color/text_white"
+                        android:fontFamily="@font/font_family_poppins"
+                        android:fontWeight="700" />
 
                 </LinearLayout>
 
@@ -289,7 +304,9 @@
             android:textStyle="bold"
             android:textColor="@color/text_white"
             android:layout_marginBottom="12dp"
-            android:layout_marginTop="8dp" />
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/font_family_poppins"
+            android:fontWeight="700" />
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -324,7 +341,9 @@
             android:textSize="20sp"
             android:textStyle="bold"
             android:textColor="@color/text_white"
-            android:layout_marginBottom="12dp" />
+            android:layout_marginBottom="12dp"
+            android:fontFamily="@font/font_family_poppins"
+            android:fontWeight="700" />
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -350,7 +369,9 @@
             android:textSize="20sp"
             android:textStyle="bold"
             android:textColor="@color/text_white"
-            android:layout_marginBottom="12dp" />
+            android:layout_marginBottom="12dp"
+            android:fontFamily="@font/font_family_poppins"
+            android:fontWeight="700" />
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -373,7 +394,9 @@
                     android:text="This month: 0% completion"
                     android:textSize="16sp"
                     android:textColor="@color/text_white"
-                    android:layout_marginBottom="12dp" />
+                    android:layout_marginBottom="12dp"
+                    android:fontFamily="@font/font_family_poppins"
+                    android:fontWeight="400" />
 
                 <View
                     android:id="@+id/viewTrendIndicator"

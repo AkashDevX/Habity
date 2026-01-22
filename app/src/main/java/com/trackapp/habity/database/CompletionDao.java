@@ -28,3 +28,4 @@ public interface CompletionDao {
     List<CompletionEntity> getAllCompletionsInRange(String startDate, String endDate);
 }
 
+

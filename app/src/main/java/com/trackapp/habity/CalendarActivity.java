@@ -252,12 +252,12 @@ public class CalendarActivity extends AppCompatActivity {
         
         calendarAdapter.setDays(days);
     }
-    
+
     private void showPieChartDialog(String dateStr) {
         executor.execute(() -> {
             // Load reminders for the selected date
             List<ReminderEntity> reminders = database.reminderDao().getRemindersForDate(dateStr);
-            
+
             // Check if there are any reminders
             if (reminders == null || reminders.isEmpty()) {
                 // Format the date for display
@@ -268,23 +268,23 @@ public class CalendarActivity extends AppCompatActivity {
                 } catch (Exception e) {
                     displayDate = dateStr;
                 }
-                
+
                 final String finalDisplayDate = displayDate;
-                
+
                 // Show message dialog on main thread
                 runOnUiThread(() -> {
                     new AlertDialog.Builder(this)
-                        .setTitle("No Reminders")
-                        .setMessage("No reminders for " + finalDisplayDate)
-                        .setPositiveButton("OK", null)
-                        .show();
+                            .setTitle("No Reminders")
+                            .setMessage("No reminders for " + finalDisplayDate)
+                            .setPositiveButton("OK", null)
+                            .show();
                 });
                 return;
             }
-            
+
             // Load all completions for the selected date
             List<CompletionEntity> completions = database.completionDao().getCompletionsForDate(dateStr);
-            
+
             // Create a map of reminderId -> completion (to check if reminder is completed)
             Set<Long> completedReminderIds = new HashSet<>();
             for (CompletionEntity completion : completions) {
@@ -292,21 +292,21 @@ public class CalendarActivity extends AppCompatActivity {
                     completedReminderIds.add(completion.reminderId);
                 }
             }
-            
+
             // Count completed and total reminders
             int totalReminders = reminders.size();
             int completedReminders = 0;
-            
+
             for (ReminderEntity reminder : reminders) {
                 if (reminder.enabled && completedReminderIds.contains(reminder.id)) {
                     completedReminders++;
                 }
             }
-            
+
             // Calculate percentages
             float completedPercentage = totalReminders > 0 ? (completedReminders * 100f / totalReminders) : 0f;
             float notCompletedPercentage = totalReminders > 0 ? ((totalReminders - completedReminders) * 100f / totalReminders) : 0f;
-            
+
             // Format the date for display
             String displayDate;
             try {
@@ -315,33 +315,33 @@ public class CalendarActivity extends AppCompatActivity {
             } catch (Exception e) {
                 displayDate = dateStr;
             }
-            
+
             final int finalCompleted = completedReminders;
             final int finalTotal = totalReminders;
             final float finalCompletedPct = completedPercentage;
             final float finalNotCompletedPct = notCompletedPercentage;
             final String finalDisplayDate = displayDate;
-            
+
             // Show dialog on main thread
             runOnUiThread(() -> {
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 View dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_pie_chart, null);
-                
+
                 TextView textViewDate = dialogView.findViewById(R.id.textViewDate);
                 PieChartView pieChartView = dialogView.findViewById(R.id.pieChartView);
                 TextView textViewStats = dialogView.findViewById(R.id.textViewStats);
-                
+
                 textViewDate.setText("Date: " + finalDisplayDate);
                 pieChartView.setData(finalCompletedPct, finalNotCompletedPct);
                 textViewStats.setText("Completed: " + finalCompleted + " / Total: " + finalTotal);
-                
+
                 builder.setView(dialogView);
                 builder.setPositiveButton("OK", null);
                 builder.show();
             });
         });
     }
-    
+
     @Override
     public boolean onSupportNavigateUp() {
         finish();

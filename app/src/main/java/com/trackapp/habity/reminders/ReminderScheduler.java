@@ -5,6 +5,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
+import android.provider.Settings;
 
 import com.trackapp.habity.database.AppDatabase;
 import com.trackapp.habity.database.ReminderDao;
@@ -63,6 +64,21 @@ public class ReminderScheduler {
             // Schedule alarm (this needs to run on any thread, AlarmManager is thread-safe)
             AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
             if (alarmManager != null) {
+                // Check exact alarm permission for Android 12+ (API 31+)
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                    if (!alarmManager.canScheduleExactAlarms()) {
+                        // Permission not granted - use inexact alarm as fallback
+                        // Note: This will be less precise but will still work
+                        alarmManager.setAndAllowWhileIdle(
+                            AlarmManager.RTC_WAKEUP,
+                            triggerMillis,
+                            pendingIntent
+                        );
+                        return; // Exit early - inexact alarm scheduled
+                    }
+                }
+                
+                // Schedule exact alarm
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                     alarmManager.setExactAndAllowWhileIdle(
                         AlarmManager.RTC_WAKEUP,

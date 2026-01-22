@@ -6,7 +6,7 @@
     android:layout_marginBottom="12dp"
     app:cardCornerRadius="12dp"
     app:cardElevation="4dp"
-    app:cardBackgroundColor="@color/background_card">
+    app:cardBackgroundColor="@color/card_purple">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -28,7 +28,7 @@
                 android:text="12:00"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:textColor="@color/text_primary" />
+                android:textColor="@color/text_white" />
 
             <TextView
                 android:id="@+id/textViewRepeatDays"
@@ -36,7 +36,7 @@
                 android:layout_height="wrap_content"
                 android:text="Every day"
                 android:textSize="12sp"
-                android:textColor="@color/text_secondary"
+                android:textColor="@color/text_white_secondary"
                 android:layout_marginTop="4dp" />
 
         </LinearLayout>
@@ -46,7 +46,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Enabled"
+            android:textColor="@color/text_white"
             android:thumbTint="@color/primary"
+            android:trackTint="@color/card_purple_light"
             android:layout_marginEnd="8dp" />
 
         <ImageButton

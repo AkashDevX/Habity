@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
+    android:background="@color/background_purple"
     tools:context=".CalendarActivity">
 
     <ImageButton
@@ -14,6 +15,8 @@
         android:src="@android:drawable/ic_media_previous"
         android:contentDescription="Previous month"
         android:background="?attr/selectableItemBackgroundBorderless"
+        android:tint="@color/text_white"
+        android:layout_marginTop="48dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="@id/textViewMonthYear" />
@@ -25,13 +28,17 @@
         android:text="January 2024"
         android:textSize="20sp"
         android:textStyle="bold"
+        android:textColor="@color/text_white"
         android:gravity="center"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="16dp"
+        android:fontFamily="@font/font_family_poppins"
+        android:fontWeight="700"
         app:layout_constraintEnd_toStartOf="@id/buttonNextMonth"
         app:layout_constraintStart_toEndOf="@id/buttonPrevMonth"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="48dp" />
 
     <ImageButton
         android:id="@+id/buttonNextMonth"
@@ -40,8 +47,10 @@
         android:src="@android:drawable/ic_media_next"
         android:contentDescription="Next month"
         android:background="?attr/selectableItemBackgroundBorderless"
+        android:tint="@color/text_white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="48dp"
         app:layout_constraintBottom_toBottomOf="@id/textViewMonthYear" />
 
     <LinearLayout
@@ -61,8 +70,11 @@
             android:text="Sun"
             android:textSize="12sp"
             android:textStyle="bold"
+            android:textColor="@color/text_white_secondary"
             android:gravity="center"
-            android:padding="8dp" />
+            android:padding="8dp"
+            android:fontFamily="@font/font_family_poppins"
+            android:fontWeight="600" />
 
         <TextView
             android:layout_width="0dp"
@@ -71,8 +83,11 @@
             android:text="Mon"
             android:textSize="12sp"
             android:textStyle="bold"
+            android:textColor="@color/text_white_secondary"
             android:gravity="center"
-            android:padding="8dp" />
+            android:padding="8dp"
+            android:fontFamily="@font/font_family_poppins"
+            android:fontWeight="600" />
 
         <TextView
             android:layout_width="0dp"
@@ -81,8 +96,11 @@
             android:text="Tue"
             android:textSize="12sp"
             android:textStyle="bold"
+            android:textColor="@color/text_white_secondary"
             android:gravity="center"
-            android:padding="8dp" />
+            android:padding="8dp"
+            android:fontFamily="@font/font_family_poppins"
+            android:fontWeight="600" />
 
         <TextView
             android:layout_width="0dp"
@@ -91,8 +109,11 @@
             android:text="Wed"
             android:textSize="12sp"
             android:textStyle="bold"
+            android:textColor="@color/text_white_secondary"
             android:gravity="center"
-            android:padding="8dp" />
+            android:padding="8dp"
+            android:fontFamily="@font/font_family_poppins"
+            android:fontWeight="600" />
 
         <TextView
             android:layout_width="0dp"
@@ -101,8 +122,11 @@
             android:text="Thu"
             android:textSize="12sp"
             android:textStyle="bold"
+            android:textColor="@color/text_white_secondary"
             android:gravity="center"
-            android:padding="8dp" />
+            android:padding="8dp"
+            android:fontFamily="@font/font_family_poppins"
+            android:fontWeight="600" />
 
         <TextView
             android:layout_width="0dp"
@@ -111,8 +135,11 @@
             android:text="Fri"
             android:textSize="12sp"
             android:textStyle="bold"
+            android:textColor="@color/text_white_secondary"
             android:gravity="center"
-            android:padding="8dp" />
+            android:padding="8dp"
+            android:fontFamily="@font/font_family_poppins"
+            android:fontWeight="600" />
 
         <TextView
             android:layout_width="0dp"
@@ -121,8 +148,11 @@
             android:text="Sat"
             android:textSize="12sp"
             android:textStyle="bold"
+            android:textColor="@color/text_white_secondary"
             android:gravity="center"
-            android:padding="8dp" />
+            android:padding="8dp"
+            android:fontFamily="@font/font_family_poppins"
+            android:fontWeight="600" />
 
     </LinearLayout>
 
@@ -142,7 +172,10 @@
         android:layout_height="wrap_content"
         android:text="Selected: None"
         android:textSize="16sp"
+        android:textColor="@color/text_white"
         android:layout_marginTop="16dp"
+        android:fontFamily="@font/font_family_poppins"
+        android:fontWeight="400"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/recyclerViewCalendar" />

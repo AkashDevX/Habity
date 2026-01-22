@@ -12,7 +12,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="24dp">
+        android:paddingTop="56dp"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:paddingBottom="24dp">
 
         <!-- Header Section -->
         <LinearLayout
@@ -31,7 +34,9 @@
                 android:textStyle="bold"
                 android:textColor="@color/text_white"
                 android:letterSpacing="0.05"
-                android:layout_marginBottom="12dp" />
+                android:layout_marginBottom="12dp"
+                android:fontFamily="@font/font_family_poppins"
+                android:fontWeight="700" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -39,7 +44,9 @@
                 android:text="Track your habits, build your routine"
                 android:textSize="16sp"
                 android:textColor="@color/text_white_secondary"
-                android:gravity="center" />
+                android:gravity="center"
+                android:fontFamily="@font/font_family_poppins"
+                android:fontWeight="400" />
 
         </LinearLayout>
 
@@ -85,7 +92,7 @@
                         <TextView
                             android:layout_width="64dp"
                             android:layout_height="64dp"
-                            android:text="📅"
+                            android:text="✅"
                             android:textSize="40sp"
                             android:gravity="center"
                             android:background="@drawable/icon_background_blue"
@@ -98,7 +105,9 @@
                             android:textSize="20sp"
                             android:textStyle="bold"
                             android:textColor="@color/text_white"
-                            android:layout_marginBottom="6dp" />
+                            android:layout_marginBottom="6dp"
+                            android:fontFamily="@font/font_family_poppins"
+                            android:fontWeight="700" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -109,7 +118,9 @@
                             android:gravity="center"
                             android:maxLines="2"
                             android:ellipsize="none"
-                            android:includeFontPadding="false" />
+                            android:includeFontPadding="false"
+                            android:fontFamily="@font/font_family_poppins"
+                            android:fontWeight="400" />
                     </LinearLayout>
 
                 </LinearLayout>
@@ -162,7 +173,9 @@
                             android:textSize="20sp"
                             android:textStyle="bold"
                             android:textColor="@color/text_white"
-                            android:layout_marginBottom="6dp" />
+                            android:layout_marginBottom="6dp"
+                            android:fontFamily="@font/font_family_poppins"
+                            android:fontWeight="700" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -173,7 +186,9 @@
                             android:gravity="center"
                             android:maxLines="2"
                             android:ellipsize="none"
-                            android:includeFontPadding="false" />
+                            android:includeFontPadding="false"
+                            android:fontFamily="@font/font_family_poppins"
+                            android:fontWeight="400" />
                     </LinearLayout>
 
                 </LinearLayout>
@@ -236,7 +251,9 @@
                             android:textSize="20sp"
                             android:textStyle="bold"
                             android:textColor="@color/text_white"
-                            android:layout_marginBottom="6dp" />
+                            android:layout_marginBottom="6dp"
+                            android:fontFamily="@font/font_family_poppins"
+                            android:fontWeight="700" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -247,7 +264,9 @@
                             android:gravity="center"
                             android:maxLines="2"
                             android:ellipsize="none"
-                            android:includeFontPadding="false" />
+                            android:includeFontPadding="false"
+                            android:fontFamily="@font/font_family_poppins"
+                            android:fontWeight="400" />
                     </LinearLayout>
 
                 </LinearLayout>
@@ -300,7 +319,9 @@
                             android:textSize="20sp"
                             android:textStyle="bold"
                             android:textColor="@color/text_white"
-                            android:layout_marginBottom="6dp" />
+                            android:layout_marginBottom="6dp"
+                            android:fontFamily="@font/font_family_poppins"
+                            android:fontWeight="700" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -311,7 +332,9 @@
                             android:gravity="center"
                             android:maxLines="2"
                             android:ellipsize="none"
-                            android:includeFontPadding="false" />
+                            android:includeFontPadding="false"
+                            android:fontFamily="@font/font_family_poppins"
+                            android:fontWeight="400" />
                     </LinearLayout>
 
                 </LinearLayout>
@@ -352,7 +375,9 @@
                     android:text="Add New Habit"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    android:textColor="@color/text_white" />
+                    android:textColor="@color/text_white"
+                    android:fontFamily="@font/font_family_poppins"
+                    android:fontWeight="700" />
 
             </LinearLayout>
 

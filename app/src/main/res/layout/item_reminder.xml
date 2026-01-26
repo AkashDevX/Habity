@@ -26,7 +26,8 @@
                 android:layout_height="wrap_content"
                 android:text="12:00"
                 android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textColor="@color/text_primary" />
 
             <TextView
                 android:id="@+id/textViewRepeatDays"
@@ -34,7 +35,7 @@
                 android:layout_height="wrap_content"
                 android:text="Every day"
                 android:textSize="14sp"
-                android:textColor="?android:attr/textColorSecondary" />
+                android:textColor="@color/text_secondary" />
 
         </LinearLayout>
 

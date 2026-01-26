@@ -43,7 +43,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Habity"
+                    android:text="HabitTracker"
                     android:textSize="44sp"
                     android:textStyle="bold"
                     android:textColor="@android:color/white"
@@ -92,7 +92,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Habity is a clean and simple habit tracker designed to help you stay consistent. Create habits, mark them daily, and watch your streak grow — even when you’re offline."
+                    android:text="HabitTracker is a clean and simple habit tracker designed to help you stay consistent. Create habits, mark them daily, and watch your streak grow — even when you're offline."
                     android:textSize="15sp"
                     android:textColor="@color/text_primary"
                     android:lineSpacingExtra="5dp"
@@ -154,7 +154,7 @@
             android:id="@+id/textFooter"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="© 2026 Habity • Made with ❤️"
+            android:text="© 2026 HabitTracker • Made with ❤️"
             android:textSize="13sp"
             android:textColor="@color/text_secondary"
             android:gravity="center"

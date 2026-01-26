@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background_light"
     android:padding="16dp"
     tools:context=".AddEditHabitActivity">
 
@@ -13,6 +14,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:hint="Habit Title"
+        app:hintTextColor="@color/text_hint"
+        app:boxStrokeColor="@color/primary"
         app:boxStrokeWidth="2dp"
         app:boxStrokeWidthFocused="2dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,7 +27,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"
-            android:maxLines="1" />
+            android:maxLines="1"
+            android:textColor="@color/text_primary"
+            android:textColorHint="@color/text_hint" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -34,6 +39,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="Save"
+        android:textColor="@color/text_white"
+        android:backgroundTint="@color/primary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textInputLayoutTitle" />

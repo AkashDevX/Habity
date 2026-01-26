@@ -21,6 +21,8 @@
             android:layout_height="wrap_content"
             android:hint="Habit Name"
             android:layout_marginBottom="16dp"
+            app:hintTextColor="@color/text_hint"
+            app:boxStrokeColor="@color/primary"
             app:boxStrokeWidth="2dp"
             app:boxStrokeWidthFocused="2dp">
 
@@ -29,7 +31,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
-                android:maxLines="1" />
+                android:maxLines="1"
+                android:textColor="@color/text_primary"
+                android:textColorHint="@color/text_hint" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -46,7 +50,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Habit Enabled"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:textColor="@color/text_primary" />
 
             <Switch
                 android:id="@+id/switchHabitEnabled"
@@ -62,6 +67,7 @@
             android:text="Reminders"
             android:textSize="18sp"
             android:textStyle="bold"
+            android:textColor="@color/text_primary"
             android:layout_marginBottom="8dp" />
 
         <androidx.recyclerview.widget.RecyclerView
@@ -77,9 +83,9 @@
             android:layout_height="wrap_content"
             android:text="+ Add Reminder Time"
             android:layout_marginBottom="24dp"
-            android:textColor="@color/primary"
             android:backgroundTint="@android:color/transparent"
-            style="?android:attr/buttonStyleSmall" />
+            style="?android:attr/buttonStyleSmall"
+            android:textColor="@android:color/white" />
 
         <!-- Save Button -->
         <Button

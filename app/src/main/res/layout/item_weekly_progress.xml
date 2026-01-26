@@ -19,7 +19,7 @@
             android:layout_weight="1"
             android:text="Mon"
             android:textSize="14sp"
-            android:textColor="@color/text_white"
+            android:textColor="@color/text_primary"
             android:textStyle="bold" />
 
         <TextView
@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:text="0%"
             android:textSize="14sp"
-            android:textColor="@color/text_white_secondary" />
+            android:textColor="@color/text_secondary" />
 
     </LinearLayout>
 

@@ -21,7 +21,7 @@
             android:layout_weight="1"
             android:text="Habit Name"
             android:textSize="16sp"
-            android:textColor="@color/text_white"
+            android:textColor="@color/text_primary"
             android:textStyle="bold" />
 
         <TextView
@@ -50,9 +50,9 @@
         android:id="@+id/textViewCompletedCount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="0/30"
-        android:textSize="12sp"
-        android:textColor="@color/text_white_secondary" />
+            android:text="0/30"
+            android:textSize="12sp"
+            android:textColor="@color/text_secondary" />
 
 </LinearLayout>
 

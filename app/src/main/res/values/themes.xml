@@ -1,9 +1,17 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.Habity" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    <style name="Base.Theme.HabitTracker" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Orange/Amber Warm Theme -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryVariant">@color/primary_dark</item>
+        <item name="colorOnPrimary">@color/text_white</item>
+        <item name="colorSecondary">@color/accent</item>
+        <item name="colorSecondaryVariant">@color/accent_dark</item>
+        <item name="colorOnSecondary">@color/text_white</item>
+        <item name="android:statusBarColor">@color/primary</item>
+        <item name="android:navigationBarColor">@color/background_purple</item>
+        <item name="android:windowLightStatusBar">false</item>
     </style>
 
-    <style name="Theme.Habity" parent="Base.Theme.Habity" />
+    <style name="Theme.HabitTracker" parent="Base.Theme.HabitTracker" />
 </resources>

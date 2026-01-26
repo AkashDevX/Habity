@@ -16,6 +16,7 @@ public class TodayActivity extends AppCompatActivity {
     private RecyclerView recyclerViewHabits;
     private HabitAdapter habitAdapter;
     private HabitViewModel habitViewModel;
+    private View emptyStateView;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +36,7 @@ public class TodayActivity extends AppCompatActivity {
         
         // Setup RecyclerView with animation
         recyclerViewHabits = findViewById(R.id.recyclerViewHabits);
+        emptyStateView = findViewById(R.id.emptyStateView);
         habitAdapter = new HabitAdapter(habitViewModel, this);
         habitAdapter.setOnRemindersClickListener(habitId -> {
             // Open edit habit screen (which includes inline reminders)
@@ -50,9 +52,18 @@ public class TodayActivity extends AppCompatActivity {
         
         // Observe habits for today only
         habitViewModel.getHabitsForToday().observe(this, habits -> {
-            habitAdapter.setHabits(habits);
-            // Animate items
-            animateRecyclerViewItems();
+            if (habits == null || habits.isEmpty()) {
+                // Show empty state
+                recyclerViewHabits.setVisibility(View.GONE);
+                emptyStateView.setVisibility(View.VISIBLE);
+            } else {
+                // Show habits list
+                recyclerViewHabits.setVisibility(View.VISIBLE);
+                emptyStateView.setVisibility(View.GONE);
+                habitAdapter.setHabits(habits);
+                // Animate items
+                animateRecyclerViewItems();
+            }
         });
     }
     

@@ -3,21 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="4dp"
-    app:cardCornerRadius="8dp"
-    app:cardElevation="4dp">
+    android:layout_margin="8dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="6dp"
+    app:cardBackgroundColor="@color/background_card">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="20dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:gravity="center_vertical">
+            android:gravity="center_vertical"
+            android:layout_marginBottom="16dp">
 
             <TextView
                 android:id="@+id/textViewHabitTitle"
@@ -25,29 +27,40 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Habit Title"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_primary" />
 
             <Switch
                 android:id="@+id/switchHabitEnabled"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Enabled" />
+                android:text="Enabled"
+                android:thumbTint="@color/primary" />
 
         </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/text_hint"
+            android:alpha="0.2"
+            android:layout_marginBottom="16dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:layout_marginTop="12dp">
+            android:gravity="center_vertical">
 
             <CheckBox
                 android:id="@+id/checkBoxDoneToday"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Done today" />
+                android:text="Done today"
+                android:textSize="16sp"
+                android:textColor="@color/text_primary"
+                android:buttonTint="@color/accent" />
 
             <Button
                 android:id="@+id/buttonReminders"
@@ -55,6 +68,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:text="Reminders"
+                android:textColor="@color/primary"
                 style="?android:attr/buttonStyleSmall" />
 
         </LinearLayout>
@@ -62,4 +76,3 @@
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>
-

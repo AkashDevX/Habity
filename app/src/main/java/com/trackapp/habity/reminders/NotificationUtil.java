@@ -22,9 +22,13 @@ public class NotificationUtil {
             NotificationChannel channel = new NotificationChannel(
                 CHANNEL_ID,
                 CHANNEL_NAME,
-                NotificationManager.IMPORTANCE_DEFAULT
+                NotificationManager.IMPORTANCE_HIGH  // Changed to HIGH for heads-up notifications
             );
             channel.setDescription("Notifications for habit reminders");
+            channel.enableVibration(true);
+            channel.enableLights(true);
+            // Set sound to default notification sound
+            channel.setSound(android.provider.Settings.System.DEFAULT_NOTIFICATION_URI, null);
             
             NotificationManager notificationManager = 
                 context.getSystemService(NotificationManager.class);
@@ -51,9 +55,12 @@ public class NotificationUtil {
             .setSmallIcon(R.drawable.ic_notification)
             .setContentTitle("Time for: " + habitTitle)
             .setContentText("✅")
-            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+            .setPriority(NotificationCompat.PRIORITY_HIGH)  // Changed to HIGH for heads-up
+            .setDefaults(NotificationCompat.DEFAULT_ALL)  // Sound, vibration, lights
             .setContentIntent(pendingIntent)
-            .setAutoCancel(true);
+            .setAutoCancel(true)
+            .setCategory(NotificationCompat.CATEGORY_REMINDER)
+            .setVisibility(NotificationCompat.VISIBILITY_PUBLIC);
         
         NotificationManager notificationManager = 
             context.getSystemService(NotificationManager.class);

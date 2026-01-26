@@ -31,9 +31,22 @@ public class AddReminderDialog extends AppCompatDialogFragment {
         void onSaved(int hour, int minute, int daysMask);
     }
     
+    private int initialHour = -1;
+    private int initialMinute = -1;
+    private int initialDaysMask = 127; // All days by default
+    
     public static AddReminderDialog newInstance(OnReminderSavedListener listener) {
         AddReminderDialog dialog = new AddReminderDialog();
         dialog.listener = listener;
+        return dialog;
+    }
+    
+    public static AddReminderDialog newInstanceForEdit(int hour, int minute, int daysMask, OnReminderSavedListener listener) {
+        AddReminderDialog dialog = new AddReminderDialog();
+        dialog.listener = listener;
+        dialog.initialHour = hour;
+        dialog.initialMinute = minute;
+        dialog.initialDaysMask = daysMask;
         return dialog;
     }
     
@@ -48,6 +61,17 @@ public class AddReminderDialog extends AppCompatDialogFragment {
         timePicker = view.findViewById(R.id.timePicker);
         timePicker.setIs24HourView(true);
         
+        // Set initial time if editing
+        if (initialHour >= 0 && initialMinute >= 0) {
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+                timePicker.setHour(initialHour);
+                timePicker.setMinute(initialMinute);
+            } else {
+                timePicker.setCurrentHour(initialHour);
+                timePicker.setCurrentMinute(initialMinute);
+            }
+        }
+        
         chipSunday = view.findViewById(R.id.chipSunday);
         chipMonday = view.findViewById(R.id.chipMonday);
         chipTuesday = view.findViewById(R.id.chipTuesday);
@@ -56,14 +80,14 @@ public class AddReminderDialog extends AppCompatDialogFragment {
         chipFriday = view.findViewById(R.id.chipFriday);
         chipSaturday = view.findViewById(R.id.chipSaturday);
         
-        // Set all chips as selected by default (all days)
-        chipSunday.setChecked(true);
-        chipMonday.setChecked(true);
-        chipTuesday.setChecked(true);
-        chipWednesday.setChecked(true);
-        chipThursday.setChecked(true);
-        chipFriday.setChecked(true);
-        chipSaturday.setChecked(true);
+        // Set chips based on initial days mask or default to all days
+        chipSunday.setChecked((initialDaysMask & MASK_SUNDAY) != 0);
+        chipMonday.setChecked((initialDaysMask & MASK_MONDAY) != 0);
+        chipTuesday.setChecked((initialDaysMask & MASK_TUESDAY) != 0);
+        chipWednesday.setChecked((initialDaysMask & MASK_WEDNESDAY) != 0);
+        chipThursday.setChecked((initialDaysMask & MASK_THURSDAY) != 0);
+        chipFriday.setChecked((initialDaysMask & MASK_FRIDAY) != 0);
+        chipSaturday.setChecked((initialDaysMask & MASK_SATURDAY) != 0);
         
         Button buttonCancel = view.findViewById(R.id.buttonCancel);
         Button buttonSave = view.findViewById(R.id.buttonSave);

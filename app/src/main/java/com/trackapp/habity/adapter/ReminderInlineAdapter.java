@@ -1,6 +1,5 @@
 package com.trackapp.habity.adapter;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,58 +12,80 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.trackapp.habity.R;
 import com.trackapp.habity.database.ReminderEntity;
-import com.trackapp.habity.reminders.ReminderScheduler;
-import com.trackapp.habity.viewmodel.ReminderViewModel;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class ReminderAdapter extends RecyclerView.Adapter<ReminderAdapter.ReminderViewHolder> {
+public class ReminderInlineAdapter extends RecyclerView.Adapter<ReminderInlineAdapter.ReminderViewHolder> {
     private List<ReminderEntity> reminders;
-    private ReminderViewModel viewModel;
-    private Context context;
-    private OnReminderDeletedListener onReminderDeletedListener;
+    private OnReminderActionListener listener;
     
-    public interface OnReminderDeletedListener {
-        void onDeleted();
+    public interface OnReminderActionListener {
+        void onReminderEnabledChanged(ReminderEntity reminder, boolean enabled);
+        void onReminderEdit(ReminderEntity reminder, int position);
+        void onReminderDelete(ReminderEntity reminder, int position);
     }
     
-    public ReminderAdapter(ReminderViewModel viewModel, Context context) {
-        this.viewModel = viewModel;
-        this.context = context;
+    public ReminderInlineAdapter() {
+        this.reminders = new ArrayList<>();
     }
     
     public void setReminders(List<ReminderEntity> reminders) {
-        this.reminders = reminders;
+        this.reminders = reminders != null ? reminders : new ArrayList<>();
         notifyDataSetChanged();
     }
     
-    public void setOnReminderDeletedListener(OnReminderDeletedListener listener) {
-        this.onReminderDeletedListener = listener;
+    public List<ReminderEntity> getReminders() {
+        return reminders;
+    }
+    
+    public void addReminder(ReminderEntity reminder) {
+        reminders.add(reminder);
+        notifyItemInserted(reminders.size() - 1);
+    }
+    
+    public void updateReminder(int position, ReminderEntity reminder) {
+        if (position >= 0 && position < reminders.size()) {
+            reminders.set(position, reminder);
+            notifyItemChanged(position);
+        }
+    }
+    
+    public void removeReminder(int position) {
+        if (position >= 0 && position < reminders.size()) {
+            reminders.remove(position);
+            notifyItemRemoved(position);
+        }
+    }
+    
+    public void setOnReminderActionListener(OnReminderActionListener listener) {
+        this.listener = listener;
     }
     
     @NonNull
     @Override
     public ReminderViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-            .inflate(R.layout.item_reminder, parent, false);
+            .inflate(R.layout.item_reminder_inline, parent, false);
         return new ReminderViewHolder(view);
     }
     
     @Override
     public void onBindViewHolder(@NonNull ReminderViewHolder holder, int position) {
         ReminderEntity reminder = reminders.get(position);
-        holder.bind(reminder);
+        holder.bind(reminder, position);
     }
     
     @Override
     public int getItemCount() {
-        return reminders == null ? 0 : reminders.size();
+        return reminders.size();
     }
     
     class ReminderViewHolder extends RecyclerView.ViewHolder {
         private TextView textViewTime;
         private TextView textViewRepeatDays;
         private Switch switchEnabled;
+        private ImageButton buttonEdit;
         private ImageButton buttonDelete;
         
         public ReminderViewHolder(@NonNull View itemView) {
@@ -72,10 +93,11 @@ public class ReminderAdapter extends RecyclerView.Adapter<ReminderAdapter.Remind
             textViewTime = itemView.findViewById(R.id.textViewTime);
             textViewRepeatDays = itemView.findViewById(R.id.textViewRepeatDays);
             switchEnabled = itemView.findViewById(R.id.switchReminderEnabled);
+            buttonEdit = itemView.findViewById(R.id.buttonEdit);
             buttonDelete = itemView.findViewById(R.id.buttonDelete);
         }
         
-        public void bind(ReminderEntity reminder) {
+        public void bind(ReminderEntity reminder, int position) {
             // Format time
             String timeStr = String.format("%02d:%02d", reminder.hour, reminder.minute);
             textViewTime.setText(timeStr);
@@ -92,22 +114,22 @@ public class ReminderAdapter extends RecyclerView.Adapter<ReminderAdapter.Remind
             // Set up enabled switch listener
             switchEnabled.setOnCheckedChangeListener((buttonView, isChecked) -> {
                 reminder.enabled = isChecked;
-                viewModel.updateReminder(reminder);
-                
-                if (isChecked) {
-                    ReminderScheduler.scheduleReminder(context, reminder.id);
-                } else {
-                    ReminderScheduler.cancelReminder(context, reminder.id);
+                if (listener != null) {
+                    listener.onReminderEnabledChanged(reminder, isChecked);
+                }
+            });
+            
+            // Set up edit button
+            buttonEdit.setOnClickListener(v -> {
+                if (listener != null) {
+                    listener.onReminderEdit(reminder, position);
                 }
             });
             
             // Set up delete button
             buttonDelete.setOnClickListener(v -> {
-                viewModel.deleteReminder(reminder);
-                ReminderScheduler.cancelReminder(context, reminder.id);
-                // Notify listener to reload
-                if (onReminderDeletedListener != null) {
-                    onReminderDeletedListener.onDeleted();
+                if (listener != null) {
+                    listener.onReminderDelete(reminder, position);
                 }
             });
         }
@@ -124,7 +146,7 @@ public class ReminderAdapter extends RecyclerView.Adapter<ReminderAdapter.Remind
             
             for (int i = 0; i < dayBits.length; i++) {
                 // Check if day IS in the selection (bit is 1)
-                if ((daysMask & dayBits[i]) != 0) {
+                if ((daysMask & dayBits[i]) == 0) {
                     if (sb.length() > 0) {
                         sb.append(", ");
                     }

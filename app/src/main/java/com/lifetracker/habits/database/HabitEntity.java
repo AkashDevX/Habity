@@ -10,6 +10,9 @@ public class HabitEntity {
     
     public String title;
     public boolean enabled;
+    public Long categoryId; // Optional category
+    public String icon; // Optional emoji icon
+    public String color; // Optional color for the habit
     
     public HabitEntity() {
         this.enabled = true;

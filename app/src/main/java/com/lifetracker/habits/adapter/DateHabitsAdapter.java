@@ -10,9 +10,14 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.lifetracker.habits.R;
+import com.trackapp.habity.R;
+import com.lifetracker.habits.database.AppDatabase;
+import com.lifetracker.habits.database.CategoryDao;
+import com.lifetracker.habits.database.CategoryEntity;
 
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class DateHabitsAdapter extends RecyclerView.Adapter<DateHabitsAdapter.DateHabitsViewHolder> {
     private List<DateHabitsItem> items;
@@ -98,6 +103,10 @@ public class DateHabitsAdapter extends RecyclerView.Adapter<DateHabitsAdapter.Da
         private TextView textViewHabitTitle;
         private TextView textViewReminderTime;
         private CardView cardView;
+        private View layoutCategoryBadge;
+        private TextView textViewCategoryName;
+        private TextView textViewCategoryIcon;
+        private ExecutorService executor;
         
         public ReminderViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -105,11 +114,18 @@ public class DateHabitsAdapter extends RecyclerView.Adapter<DateHabitsAdapter.Da
             textViewHabitTitle = itemView.findViewById(R.id.textViewHabitTitle);
             textViewReminderTime = itemView.findViewById(R.id.textViewReminderTime);
             cardView = itemView.findViewById(R.id.cardViewReminder);
+            layoutCategoryBadge = itemView.findViewById(R.id.layoutCategoryBadge);
+            textViewCategoryName = itemView.findViewById(R.id.textViewCategoryName);
+            textViewCategoryIcon = itemView.findViewById(R.id.textViewCategoryIcon);
+            executor = Executors.newSingleThreadExecutor();
         }
         
         public void bind(ReminderItem reminder) {
             textViewHabitTitle.setText(reminder.habitTitle);
             textViewReminderTime.setText(reminder.reminderTime);
+            
+            // Load and display category
+            loadCategory(reminder);
             
             if (reminder.completed) {
                 textViewStatus.setText("✓");
@@ -124,6 +140,48 @@ public class DateHabitsAdapter extends RecyclerView.Adapter<DateHabitsAdapter.Da
                 textViewReminderTime.setTextColor(Color.GRAY);
                 textViewStatus.setTextColor(Color.BLACK);
             }
+        }
+        
+        private void loadCategory(ReminderItem reminder) {
+            if (reminder.categoryId == null) {
+                layoutCategoryBadge.setVisibility(View.GONE);
+                return;
+            }
+            
+            executor.execute(() -> {
+                AppDatabase db = AppDatabase.getDatabase(itemView.getContext());
+                CategoryDao categoryDao = db.categoryDao();
+                CategoryEntity category = categoryDao.getCategoryById(reminder.categoryId);
+                
+                if (category != null) {
+                    android.os.Handler mainHandler = new android.os.Handler(android.os.Looper.getMainLooper());
+                    mainHandler.post(() -> {
+                        layoutCategoryBadge.setVisibility(View.VISIBLE);
+                        textViewCategoryName.setText(category.name);
+                        textViewCategoryIcon.setText(category.icon != null ? category.icon : "⭐");
+                        
+                        // Set background color if available
+                        if (category.color != null && !category.color.isEmpty()) {
+                            try {
+                                int color = Color.parseColor(category.color);
+                                // Create a drawable with the category color
+                                android.graphics.drawable.GradientDrawable drawable = new android.graphics.drawable.GradientDrawable();
+                                drawable.setShape(android.graphics.drawable.GradientDrawable.RECTANGLE);
+                                drawable.setCornerRadius(12f);
+                                drawable.setColor(color);
+                                layoutCategoryBadge.setBackground(drawable);
+                            } catch (Exception e) {
+                                // Use default if color parsing fails
+                            }
+                        }
+                    });
+                } else {
+                    android.os.Handler mainHandler = new android.os.Handler(android.os.Looper.getMainLooper());
+                    mainHandler.post(() -> {
+                        layoutCategoryBadge.setVisibility(View.GONE);
+                    });
+                }
+            });
         }
     }
     
@@ -143,6 +201,7 @@ public class DateHabitsAdapter extends RecyclerView.Adapter<DateHabitsAdapter.Da
         String habitTitle;
         String reminderTime;
         boolean completed;
+        Long categoryId; // Add category ID
         
         public ReminderItem(long reminderId, long habitId, String habitTitle, String reminderTime, boolean completed) {
             this.reminderId = reminderId;
@@ -150,6 +209,16 @@ public class DateHabitsAdapter extends RecyclerView.Adapter<DateHabitsAdapter.Da
             this.habitTitle = habitTitle;
             this.reminderTime = reminderTime;
             this.completed = completed;
+            this.categoryId = null;
+        }
+        
+        public ReminderItem(long reminderId, long habitId, String habitTitle, String reminderTime, boolean completed, Long categoryId) {
+            this.reminderId = reminderId;
+            this.habitId = habitId;
+            this.habitTitle = habitTitle;
+            this.reminderTime = reminderTime;
+            this.completed = completed;
+            this.categoryId = categoryId;
         }
     }
 }

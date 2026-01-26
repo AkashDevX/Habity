@@ -14,6 +14,7 @@ import com.lifetracker.habits.database.AppDatabase;
 import com.lifetracker.habits.database.HabitDao;
 import com.lifetracker.habits.database.HabitEntity;
 import com.lifetracker.habits.viewmodel.ReminderViewModel;
+import com.trackapp.habity.R;
 
 import java.util.List;
 import java.util.concurrent.ExecutorService;

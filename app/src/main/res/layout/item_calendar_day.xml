@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/cardView"
     android:layout_width="match_parent"
     android:layout_height="60dp"
-    android:layout_margin="2dp"
-    app:cardCornerRadius="8dp"
-    app:cardElevation="2dp">
+    android:layout_margin="4dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="2dp"
+    app:cardBackgroundColor="@color/card_purple"
+    app:strokeWidth="1dp"
+    app:strokeColor="@color/text_hint"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackground">
 
     <TextView
         android:id="@+id/textViewDay"
@@ -18,4 +24,4 @@
         android:textStyle="bold"
         android:textColor="@color/text_primary" />
 
-</androidx.cardview.widget.CardView>
+</com.google.android.material.card.MaterialCardView>

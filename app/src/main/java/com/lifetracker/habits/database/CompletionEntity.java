@@ -35,6 +35,7 @@ public class CompletionEntity {
     public Long reminderId; // Nullable foreign key to reminders table
     
     public boolean done;
+    public String notes; // Optional notes for this completion
     
     public CompletionEntity() {}
     

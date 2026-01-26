@@ -23,11 +23,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:background="@drawable/gradient_orange"
+                android:background="@color/primary_dark"
                 android:paddingTop="56dp"
                 android:paddingBottom="32dp"
                 android:paddingStart="24dp"
-                android:paddingEnd="24dp">
+                android:paddingEnd="24dp"
+                android:layout_marginBottom="20dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -281,9 +282,9 @@
                 android:paddingEnd="16dp"
                 android:paddingBottom="8dp">
 
-                <!-- Reminders Card -->
+                <!-- Progress Card -->
                 <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/tileReminders"
+                    android:id="@+id/tileProgress"
                     android:layout_width="0dp"
                     android:layout_height="160dp"
                     android:layout_weight="1"
@@ -299,21 +300,21 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical"
-                        android:background="@drawable/gradient_reminders"
+                        android:background="@drawable/gradient_progress"
                         android:padding="20dp"
                         android:gravity="center">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="🔔"
+                            android:text="🎯"
                             android:textSize="48sp"
                             android:layout_marginBottom="12dp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Reminders"
+                            android:text="Progress"
                             android:textSize="22sp"
                             android:textStyle="bold"
                             android:textColor="@color/text_white" />
@@ -321,7 +322,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Manage alerts"
+                            android:text="View milestones"
                             android:textSize="14sp"
                             android:textColor="@color/text_white"
                             android:alpha="0.9"
@@ -331,9 +332,9 @@
 
                 </com.google.android.material.card.MaterialCardView>
 
-                <!-- My Habits Card -->
+                <!-- Categories Card -->
                 <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/tileMyHabits"
+                    android:id="@+id/tileCategories"
                     android:layout_width="0dp"
                     android:layout_height="160dp"
                     android:layout_weight="1"
@@ -349,21 +350,21 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical"
-                        android:background="@drawable/gradient_settings"
+                        android:background="@drawable/gradient_categories"
                         android:padding="20dp"
                         android:gravity="center">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="📋"
+                            android:text="📁"
                             android:textSize="48sp"
                             android:layout_marginBottom="12dp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="My Habits"
+                            android:text="Categories"
                             android:textSize="22sp"
                             android:textStyle="bold"
                             android:textColor="@color/text_white" />
@@ -371,7 +372,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="View all habits"
+                            android:text="Organize habits"
                             android:textSize="14sp"
                             android:textColor="@color/text_white"
                             android:alpha="0.9"

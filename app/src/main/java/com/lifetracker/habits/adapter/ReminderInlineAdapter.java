@@ -10,7 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.lifetracker.habits.R;
+import com.trackapp.habity.R;
 import com.lifetracker.habits.database.ReminderEntity;
 
 import java.util.ArrayList;

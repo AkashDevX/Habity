@@ -17,6 +17,7 @@ import com.lifetracker.habits.database.CompletionDao;
 import com.lifetracker.habits.database.CompletionEntity;
 import com.lifetracker.habits.database.HabitDao;
 import com.lifetracker.habits.database.HabitEntity;
+import com.trackapp.habity.R;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

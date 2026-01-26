@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
-    app:cardCornerRadius="16dp"
+    app:cardCornerRadius="20dp"
     app:cardElevation="6dp"
-    app:cardBackgroundColor="@color/card_purple">
+    app:cardBackgroundColor="@color/card_purple"
+    app:strokeWidth="0dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,36 +18,77 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
+            android:orientation="vertical"
             android:layout_marginBottom="16dp">
 
-            <TextView
-                android:id="@+id/textViewHabitTitle"
-                android:layout_width="0dp"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Habit Title"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:textColor="@color/text_white"
-                android:fontFamily="@font/font_family_poppins"
-                android:fontWeight="700" />
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
 
-            <Switch
-                android:id="@+id/switchHabitEnabled"
+                <TextView
+                    android:id="@+id/textViewHabitTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Habit Title"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary" />
+
+                <Switch
+                    android:id="@+id/switchHabitEnabled"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Enabled"
+                    android:textColor="@color/text_secondary"
+                    android:thumbTint="@color/primary"
+                    android:trackTint="@color/card_purple_light" />
+
+            </LinearLayout>
+
+            <!-- Category Badge -->
+            <LinearLayout
+                android:id="@+id/layoutCategoryBadge"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Enabled"
-                android:textColor="@color/text_white"
-                android:thumbTint="@color/primary" />
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="8dp"
+                android:visibility="gone"
+                android:background="@drawable/icon_background_purple"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp">
+
+                <TextView
+                    android:id="@+id/textViewCategoryIcon"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:text="⭐"
+                    android:textSize="16sp"
+                    android:gravity="center"
+                    android:layout_marginEnd="6dp" />
+
+                <TextView
+                    android:id="@+id/textViewCategoryName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Category"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_white" />
+
+            </LinearLayout>
 
         </LinearLayout>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/card_purple_light"
+            android:background="@color/text_hint"
             android:alpha="0.2"
             android:layout_marginBottom="16dp" />
 
@@ -62,7 +104,7 @@
                 android:layout_height="wrap_content"
                 android:text="Done today"
                 android:textSize="16sp"
-                android:textColor="@color/text_white"
+                android:textColor="@color/text_primary"
                 android:buttonTint="@color/primary" />
 
             <Button
@@ -70,8 +112,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:text="REMINDERS"
-                android:textColor="@android:color/white"
+                android:text="Reminders"
+                android:textColor="@color/text_white"
                 android:textSize="12sp"
                 android:textStyle="bold"
                 android:backgroundTint="@color/primary"
@@ -79,12 +121,10 @@
                 android:paddingEnd="16dp"
                 android:paddingTop="8dp"
                 android:paddingBottom="8dp"
-                android:fontFamily="@font/font_family_poppins"
-                android:fontWeight="700"
                 style="?android:attr/buttonStyleSmall" />
 
         </LinearLayout>
 
     </LinearLayout>
 
-</androidx.cardview.widget.CardView>
+</com.google.android.material.card.MaterialCardView>

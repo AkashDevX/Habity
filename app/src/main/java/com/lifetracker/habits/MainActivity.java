@@ -20,6 +20,7 @@ import com.lifetracker.habits.adapter.HabitAdapter;
 import com.lifetracker.habits.reminders.NotificationUtil;
 import com.lifetracker.habits.reminders.ReminderScheduler;
 import com.lifetracker.habits.viewmodel.HabitViewModel;
+import com.trackapp.habity.R;
 
 public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerViewHabits;

@@ -11,6 +11,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.lifetracker.habits.adapter.HabitAdapter;
 import com.lifetracker.habits.viewmodel.HabitViewModel;
+import com.trackapp.habity.R;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+import android.widget.TextView;
 
 public class TodayActivity extends AppCompatActivity {
     private RecyclerView recyclerViewHabits;
@@ -37,6 +43,13 @@ public class TodayActivity extends AppCompatActivity {
         // Setup RecyclerView with animation
         recyclerViewHabits = findViewById(R.id.recyclerViewHabits);
         emptyStateView = findViewById(R.id.emptyStateView);
+        
+        // Set today's date in header
+        TextView textViewDate = findViewById(R.id.textViewDate);
+        if (textViewDate != null) {
+            SimpleDateFormat dateFormat = new SimpleDateFormat("EEEE, MMMM d", Locale.getDefault());
+            textViewDate.setText(dateFormat.format(new Date()));
+        }
         habitAdapter = new HabitAdapter(habitViewModel, this);
         habitAdapter.setOnRemindersClickListener(habitId -> {
             // Open edit habit screen (which includes inline reminders)

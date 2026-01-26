@@ -126,7 +126,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Cancel"
-            android:textColor="@color/text_primary"
+            android:textColor="@color/white"
             style="?android:attr/buttonStyleSmall" />
 
         <Button

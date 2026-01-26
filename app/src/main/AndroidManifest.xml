@@ -46,6 +46,16 @@
             android:parentActivityName="com.lifetracker.habits.DashboardActivity" />
         
         <activity
+            android:name="com.lifetracker.habits.ProgressActivity"
+            android:exported="false"
+            android:parentActivityName="com.lifetracker.habits.DashboardActivity" />
+        
+        <activity
+            android:name="com.lifetracker.habits.CategoriesActivity"
+            android:exported="false"
+            android:parentActivityName="com.lifetracker.habits.DashboardActivity" />
+        
+        <activity
             android:name="com.lifetracker.habits.AddEditHabitActivity"
             android:exported="false"
             android:parentActivityName="com.lifetracker.habits.DashboardActivity" />

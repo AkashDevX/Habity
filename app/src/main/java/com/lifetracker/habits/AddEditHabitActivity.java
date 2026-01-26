@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,14 +13,22 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
+import android.widget.AutoCompleteTextView;
 import com.lifetracker.habits.adapter.ReminderInlineAdapter;
 import com.lifetracker.habits.database.AppDatabase;
+import com.lifetracker.habits.database.CategoryDao;
+import com.lifetracker.habits.database.CategoryEntity;
 import com.lifetracker.habits.database.HabitEntity;
 import com.lifetracker.habits.database.ReminderDao;
 import com.lifetracker.habits.database.ReminderEntity;
 import com.lifetracker.habits.reminders.ReminderScheduler;
 import com.lifetracker.habits.viewmodel.HabitViewModel;
 import com.lifetracker.habits.viewmodel.ReminderViewModel;
+import com.trackapp.habity.R;
+
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +37,8 @@ import java.util.concurrent.Executors;
 
 public class AddEditHabitActivity extends AppCompatActivity {
     private TextInputEditText editTextTitle;
+    private AutoCompleteTextView editTextCategory;
+    private TextInputLayout textInputLayoutCategory;
     private Switch switchHabitEnabled;
     private Button buttonAddReminder;
     private Button buttonSave;
@@ -41,6 +52,8 @@ public class AddEditHabitActivity extends AppCompatActivity {
     private long habitId = -1;
     private boolean isEditMode = false;
     private List<ReminderEntity> originalReminders = new ArrayList<>();
+    private List<CategoryEntity> categories = new ArrayList<>();
+    private Long selectedCategoryId = null;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,10 +72,15 @@ public class AddEditHabitActivity extends AppCompatActivity {
         reminderViewModel = new ViewModelProvider(this).get(ReminderViewModel.class);
         
         editTextTitle = findViewById(R.id.editTextTitle);
+        editTextCategory = findViewById(R.id.editTextCategory);
+        textInputLayoutCategory = findViewById(R.id.textInputLayoutCategory);
         switchHabitEnabled = findViewById(R.id.switchHabitEnabled);
         buttonAddReminder = findViewById(R.id.buttonAddReminder);
         buttonSave = findViewById(R.id.buttonSave);
         recyclerViewReminders = findViewById(R.id.recyclerViewReminders);
+        
+        // Load categories and setup dropdown
+        loadCategories();
         
         // Setup RecyclerView for reminders
         reminderAdapter = new ReminderInlineAdapter();
@@ -87,16 +105,23 @@ public class AddEditHabitActivity extends AppCompatActivity {
         recyclerViewReminders.setAdapter(reminderAdapter);
         
         // Check if editing existing habit
+        TextView textViewHeaderTitle = findViewById(R.id.textViewHeaderTitle);
         if (getIntent().hasExtra("habitId")) {
             habitId = getIntent().getLongExtra("habitId", -1);
             isEditMode = true;
             if (getSupportActionBar() != null) {
                 getSupportActionBar().setTitle("Edit Habit");
             }
+            if (textViewHeaderTitle != null) {
+                textViewHeaderTitle.setText("Edit Habit");
+            }
             loadHabitData();
         } else {
             if (getSupportActionBar() != null) {
                 getSupportActionBar().setTitle("Add Habit");
+            }
+            if (textViewHeaderTitle != null) {
+                textViewHeaderTitle.setText("Create New Habit");
             }
             switchHabitEnabled.setChecked(true);
         }
@@ -105,8 +130,64 @@ public class AddEditHabitActivity extends AppCompatActivity {
         
         buttonSave.setOnClickListener(v -> saveHabit());
         
+        // Setup category dropdown - AutoCompleteTextView handles clicks automatically
+        
         // Animate views on load (after all views are initialized)
         animateViews();
+    }
+    
+    private void loadCategories() {
+        executor.execute(() -> {
+            AppDatabase db = AppDatabase.getDatabase(this);
+            CategoryDao categoryDao = db.categoryDao();
+            categories = categoryDao.getAllCategoriesSync();
+            
+            runOnUiThread(() -> {
+                setupCategoryDropdown();
+            });
+        });
+    }
+    
+    private void setupCategoryDropdown() {
+        if (categories.isEmpty()) {
+            textInputLayoutCategory.setVisibility(View.GONE);
+            return;
+        }
+        
+        // Create adapter for dropdown
+        List<String> categoryNames = new ArrayList<>();
+        categoryNames.add("None"); // Add "None" option
+        for (CategoryEntity category : categories) {
+            categoryNames.add(category.name);
+        }
+        
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, 
+            android.R.layout.simple_dropdown_item_1line, categoryNames);
+        
+        AutoCompleteTextView autoCompleteTextView = (AutoCompleteTextView) editTextCategory;
+        autoCompleteTextView.setAdapter(adapter);
+        autoCompleteTextView.setOnItemClickListener((parent, view, position, id) -> {
+            if (position == 0) {
+                // "None" selected
+                selectedCategoryId = null;
+                editTextCategory.setText("");
+            } else {
+                CategoryEntity selectedCategory = categories.get(position - 1);
+                selectedCategoryId = selectedCategory.id;
+                editTextCategory.setText(selectedCategory.name);
+            }
+        });
+    }
+    
+    private void showCategoryDialog() {
+        if (categories.isEmpty()) {
+            Toast.makeText(this, "No categories available. Create categories first.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        
+        // Show dropdown
+        AutoCompleteTextView autoCompleteTextView = (AutoCompleteTextView) editTextCategory;
+        autoCompleteTextView.showDropDown();
     }
     
     private void loadHabitData() {
@@ -123,9 +204,21 @@ public class AddEditHabitActivity extends AppCompatActivity {
             ReminderDao reminderDao = db.reminderDao();
             List<ReminderEntity> reminders = reminderDao.getRemindersForHabit(habitId);
             
+            CategoryDao categoryDao = db.categoryDao();
+            CategoryEntity category = null;
+            if (habit.categoryId != null) {
+                category = categoryDao.getCategoryById(habit.categoryId);
+            }
+            
+            final CategoryEntity finalCategory = category;
             runOnUiThread(() -> {
                 editTextTitle.setText(habit.title);
                 switchHabitEnabled.setChecked(habit.enabled);
+                
+                if (finalCategory != null) {
+                    selectedCategoryId = finalCategory.id;
+                    editTextCategory.setText(finalCategory.name);
+                }
                 
                 originalReminders = new ArrayList<>(reminders);
                 reminderAdapter.setReminders(reminders);
@@ -187,6 +280,7 @@ public class AddEditHabitActivity extends AppCompatActivity {
                 if (habit != null) {
                     habit.title = title;
                     habit.enabled = habitEnabled;
+                    habit.categoryId = selectedCategoryId;
                     habitDao.update(habit);
                     
                     // Cancel all existing alarms for this habit
@@ -216,6 +310,7 @@ public class AddEditHabitActivity extends AppCompatActivity {
             } else {
                 // Insert new habit
                 HabitEntity habit = new HabitEntity(title, habitEnabled);
+                habit.categoryId = selectedCategoryId;
                 long newHabitId = habitDao.insert(habit);
                 
                 // Insert reminders

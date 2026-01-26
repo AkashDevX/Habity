@@ -7,6 +7,8 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import com.trackapp.habity.R;
+
 public class AboutActivity extends AppCompatActivity {
     
     @Override
@@ -32,15 +34,6 @@ public class AboutActivity extends AppCompatActivity {
         }
         
         // Setup Privacy Policy card click
-        CardView cardPrivacyPolicy = findViewById(R.id.cardPrivacyPolicy);
-        if (cardPrivacyPolicy != null) {
-            cardPrivacyPolicy.setOnClickListener(v -> {
-                Intent intent = new Intent(AboutActivity.this, PrivacyPolicyActivity.class);
-                startActivity(intent);
-                overridePendingTransition(R.anim.slide_in_right, android.R.anim.fade_out);
-            });
-        }
-        
         // Animate cards
         animateCards();
     }

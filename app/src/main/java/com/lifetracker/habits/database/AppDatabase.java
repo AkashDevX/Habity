@@ -9,14 +9,15 @@ import androidx.room.migration.Migration;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
 @Database(
-    entities = {HabitEntity.class, ReminderEntity.class, CompletionEntity.class},
-    version = 3,
+    entities = {HabitEntity.class, ReminderEntity.class, CompletionEntity.class, CategoryEntity.class},
+    version = 4,
     exportSchema = false
 )
 public abstract class AppDatabase extends RoomDatabase {
     public abstract HabitDao habitDao();
     public abstract ReminderDao reminderDao();
     public abstract CompletionDao completionDao();
+    public abstract CategoryDao categoryDao();
     
     private static volatile AppDatabase INSTANCE;
     
@@ -29,7 +30,7 @@ public abstract class AppDatabase extends RoomDatabase {
                         AppDatabase.class,
                         "habittracker_database"
                     )
-                    .addMigrations(MIGRATION_1_2, MIGRATION_2_3)
+                    .addMigrations(MIGRATION_1_2, MIGRATION_2_3, MIGRATION_3_4)
                     .build();
                 }
             }
@@ -101,6 +102,35 @@ public abstract class AppDatabase extends RoomDatabase {
             // Step 5: Recreate indices
             database.execSQL("CREATE INDEX IF NOT EXISTS index_reminders_habitId ON reminders(habitId)");
             database.execSQL("CREATE INDEX IF NOT EXISTS index_reminders_date ON reminders(date)");
+        }
+    };
+    
+    static final Migration MIGRATION_3_4 = new Migration(3, 4) {
+        @Override
+        public void migrate(SupportSQLiteDatabase database) {
+            // Add categoryId, icon, color to habits table
+            database.execSQL("ALTER TABLE habits ADD COLUMN categoryId INTEGER");
+            database.execSQL("ALTER TABLE habits ADD COLUMN icon TEXT");
+            database.execSQL("ALTER TABLE habits ADD COLUMN color TEXT");
+            
+            // Add notes to completions table
+            database.execSQL("ALTER TABLE completions ADD COLUMN notes TEXT");
+            
+            // Create categories table
+            database.execSQL("CREATE TABLE IF NOT EXISTS categories (" +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " +
+                "name TEXT NOT NULL, " +
+                "color TEXT, " +
+                "icon TEXT" +
+                ")");
+            
+            // Insert default categories
+            database.execSQL("INSERT INTO categories (name, color, icon) VALUES ('Health', '#10B981', '🏥')");
+            database.execSQL("INSERT INTO categories (name, color, icon) VALUES ('Fitness', '#EF4444', '💪')");
+            database.execSQL("INSERT INTO categories (name, color, icon) VALUES ('Work', '#3B82F6', '💼')");
+            database.execSQL("INSERT INTO categories (name, color, icon) VALUES ('Personal', '#8B5CF6', '⭐')");
+            database.execSQL("INSERT INTO categories (name, color, icon) VALUES ('Learning', '#F59E0B', '📚')");
+            database.execSQL("INSERT INTO categories (name, color, icon) VALUES ('Social', '#EC4899', '👥')");
         }
     };
 }

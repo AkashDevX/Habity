@@ -18,6 +18,7 @@ import androidx.core.content.ContextCompat;
 
 import com.lifetracker.habits.reminders.NotificationUtil;
 import com.lifetracker.habits.reminders.ReminderScheduler;
+import com.trackapp.habity.R;
 
 public class DashboardActivity extends AppCompatActivity {
     private ActivityResultLauncher<String> requestPermissionLauncher;
@@ -60,8 +61,8 @@ public class DashboardActivity extends AppCompatActivity {
         MaterialCardView tileCalendar = findViewById(R.id.tileCalendar);
         MaterialCardView tileStats = findViewById(R.id.tileStats);
         MaterialCardView tileAbout = findViewById(R.id.tileAbout);
-        MaterialCardView tileReminders = findViewById(R.id.tileReminders);
-        MaterialCardView tileMyHabits = findViewById(R.id.tileMyHabits);
+        MaterialCardView tileProgress = findViewById(R.id.tileProgress);
+        MaterialCardView tileCategories = findViewById(R.id.tileCategories);
         MaterialCardView tileAddHabit = findViewById(R.id.tileAddHabit);
         
         tileToday.setOnClickListener(v -> {
@@ -104,23 +105,21 @@ public class DashboardActivity extends AppCompatActivity {
                 }).start();
         });
         
-        tileReminders.setOnClickListener(v -> {
+        tileProgress.setOnClickListener(v -> {
             v.animate().scaleX(0.95f).scaleY(0.95f).setDuration(100)
                 .withEndAction(() -> {
                     v.animate().scaleX(1f).scaleY(1f).setDuration(100).start();
-                    // Navigate to MainActivity which shows habits, then user can access reminders from there
-                    // Or we could create a dedicated reminders list activity
-                    Intent intent = new Intent(DashboardActivity.this, MainActivity.class);
+                    Intent intent = new Intent(DashboardActivity.this, ProgressActivity.class);
                     startActivity(intent);
                     overridePendingTransition(R.anim.slide_in_right, android.R.anim.fade_out);
                 }).start();
         });
         
-        tileMyHabits.setOnClickListener(v -> {
+        tileCategories.setOnClickListener(v -> {
             v.animate().scaleX(0.95f).scaleY(0.95f).setDuration(100)
                 .withEndAction(() -> {
                     v.animate().scaleX(1f).scaleY(1f).setDuration(100).start();
-                    Intent intent = new Intent(DashboardActivity.this, MainActivity.class);
+                    Intent intent = new Intent(DashboardActivity.this, CategoriesActivity.class);
                     startActivity(intent);
                     overridePendingTransition(R.anim.slide_in_right, android.R.anim.fade_out);
                 }).start();

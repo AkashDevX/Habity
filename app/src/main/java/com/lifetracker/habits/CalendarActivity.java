@@ -19,6 +19,7 @@ import com.lifetracker.habits.database.CompletionEntity;
 import com.lifetracker.habits.database.HabitEntity;
 import com.lifetracker.habits.database.ReminderEntity;
 import com.lifetracker.habits.view.PieChartView;
+import com.trackapp.habity.R;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -180,12 +181,14 @@ public class CalendarActivity extends AppCompatActivity {
             for (ReminderEntity reminder : reminders) {
                 if (!reminder.enabled) continue;
                 
-                // Get habit title
+                // Get habit title and category
                 String habitTitle = "Unknown Habit";
+                Long categoryId = null;
                 if (habitMap.containsKey(reminder.habitId)) {
                     HabitEntity habit = habitMap.get(reminder.habitId);
                     if (habit.enabled) {
                         habitTitle = habit.title;
+                        categoryId = habit.categoryId;
                     } else {
                         continue; // Skip if habit is disabled
                     }
@@ -201,7 +204,7 @@ public class CalendarActivity extends AppCompatActivity {
                 String reminderTime = String.format("%02d:%02d", reminder.hour, reminder.minute);
                 
                 remindersForDate.add(new DateHabitsAdapter.ReminderItem(
-                    reminder.id, reminder.habitId, habitTitle, reminderTime, completed));
+                    reminder.id, reminder.habitId, habitTitle, reminderTime, completed, categoryId));
             }
             
             // Format the date for display

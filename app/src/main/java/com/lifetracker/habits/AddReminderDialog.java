@@ -11,6 +11,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatDialogFragment;
 
 import com.google.android.material.chip.Chip;
+import com.trackapp.habity.R;
 
 public class AddReminderDialog extends AppCompatDialogFragment {
     private TimePicker timePicker;

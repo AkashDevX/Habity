@@ -10,7 +10,7 @@ import android.os.Build;
 import androidx.core.app.NotificationCompat;
 
 import com.lifetracker.habits.MainActivity;
-import com.lifetracker.habits.R;
+import com.trackapp.habity.R;
 
 public class NotificationUtil {
     private static final String CHANNEL_ID = "habit_reminders";

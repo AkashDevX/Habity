@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.lifetracker.habits.R;
+import com.trackapp.habity.R;
 
 import java.util.List;
 

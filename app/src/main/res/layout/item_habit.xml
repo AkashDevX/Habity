@@ -6,7 +6,7 @@
     android:layout_margin="8dp"
     app:cardCornerRadius="16dp"
     app:cardElevation="6dp"
-    app:cardBackgroundColor="@color/background_card">
+    app:cardBackgroundColor="@color/card_purple">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -29,13 +29,16 @@
                 android:text="Habit Title"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:textColor="@color/text_primary" />
+                android:textColor="@color/text_white"
+                android:fontFamily="@font/font_family_poppins"
+                android:fontWeight="700" />
 
             <Switch
                 android:id="@+id/switchHabitEnabled"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Enabled"
+                android:textColor="@color/text_white"
                 android:thumbTint="@color/primary" />
 
         </LinearLayout>
@@ -43,7 +46,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/text_hint"
+            android:background="@color/card_purple_light"
             android:alpha="0.2"
             android:layout_marginBottom="16dp" />
 
@@ -59,16 +62,25 @@
                 android:layout_height="wrap_content"
                 android:text="Done today"
                 android:textSize="16sp"
-                android:textColor="@color/text_primary"
-                android:buttonTint="@color/accent" />
+                android:textColor="@color/text_white"
+                android:buttonTint="@color/primary" />
 
             <Button
                 android:id="@+id/buttonReminders"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:text="Reminders"
-                android:textColor="@color/primary"
+                android:text="REMINDERS"
+                android:textColor="@android:color/white"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:backgroundTint="@color/primary"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:fontFamily="@font/font_family_poppins"
+                android:fontWeight="700"
                 style="?android:attr/buttonStyleSmall" />
 
         </LinearLayout>

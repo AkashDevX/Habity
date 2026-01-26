@@ -15,11 +15,14 @@ import com.lifetracker.habits.database.ReminderDao;
 import com.lifetracker.habits.database.ReminderEntity;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import androidx.lifecycle.MutableLiveData;
 
 public class HabitViewModel extends AndroidViewModel {
     private HabitDao habitDao;
@@ -98,6 +101,83 @@ public class HabitViewModel extends AndroidViewModel {
     
     public interface OnCompletionCheckedListener {
         void onChecked(boolean done);
+    }
+    
+    /**
+     * Get habits that have reminders scheduled for today.
+     * A habit is included if it has at least one enabled reminder that:
+     * - Has a date matching today, OR
+     * - Has a daysMask that includes today's day of week
+     */
+    public LiveData<List<HabitEntity>> getHabitsForToday() {
+        MutableLiveData<List<HabitEntity>> result = new MutableLiveData<>();
+        
+        executor.execute(() -> {
+            String today = dateFormat.format(new Date());
+            Calendar cal = Calendar.getInstance();
+            int dayOfWeek = cal.get(Calendar.DAY_OF_WEEK);
+            int todayBit = dayOfWeekToBit(dayOfWeek);
+            
+            // Get all enabled habits
+            List<HabitEntity> allHabits = habitDao.getAllHabitsSync();
+            List<HabitEntity> todayHabits = new ArrayList<>();
+            
+            for (HabitEntity habit : allHabits) {
+                if (!habit.enabled) {
+                    continue; // Skip disabled habits
+                }
+                
+                // Check if this habit has any reminders for today
+                List<ReminderEntity> reminders = reminderDao.getRemindersForHabit(habit.id);
+                boolean hasReminderForToday = false;
+                
+                for (ReminderEntity reminder : reminders) {
+                    if (!reminder.enabled) {
+                        continue; // Skip disabled reminders
+                    }
+                    
+                    // Check if reminder matches today by date
+                    if (today.equals(reminder.date)) {
+                        hasReminderForToday = true;
+                        break;
+                    }
+                    
+                    // Check if reminder matches today by daysMask
+                    if ((reminder.daysMask & todayBit) != 0) {
+                        hasReminderForToday = true;
+                        break;
+                    }
+                }
+                
+                if (hasReminderForToday) {
+                    todayHabits.add(habit);
+                }
+            }
+            
+            // Update on main thread
+            new android.os.Handler(android.os.Looper.getMainLooper()).post(() -> {
+                result.setValue(todayHabits);
+            });
+        });
+        
+        return result;
+    }
+    
+    /**
+     * Convert Calendar day of week to daysMask bit.
+     * Sun=1, Mon=2, Tue=4, Wed=8, Thu=16, Fri=32, Sat=64
+     */
+    private int dayOfWeekToBit(int calendarDayOfWeek) {
+        switch (calendarDayOfWeek) {
+            case Calendar.SUNDAY: return 1;
+            case Calendar.MONDAY: return 2;
+            case Calendar.TUESDAY: return 4;
+            case Calendar.WEDNESDAY: return 8;
+            case Calendar.THURSDAY: return 16;
+            case Calendar.FRIDAY: return 32;
+            case Calendar.SATURDAY: return 64;
+            default: return 1;
+        }
     }
     
     @Override

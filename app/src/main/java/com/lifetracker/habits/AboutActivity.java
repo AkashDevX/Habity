@@ -1,9 +1,11 @@
 package com.lifetracker.habits;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 public class AboutActivity extends AppCompatActivity {
     
@@ -27,6 +29,16 @@ public class AboutActivity extends AppCompatActivity {
             textViewVersion.setText("Version " + versionName);
         } catch (Exception e) {
             textViewVersion.setText("Version 1.0");
+        }
+        
+        // Setup Privacy Policy card click
+        CardView cardPrivacyPolicy = findViewById(R.id.cardPrivacyPolicy);
+        if (cardPrivacyPolicy != null) {
+            cardPrivacyPolicy.setOnClickListener(v -> {
+                Intent intent = new Intent(AboutActivity.this, PrivacyPolicyActivity.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, android.R.anim.fade_out);
+            });
         }
         
         // Animate cards

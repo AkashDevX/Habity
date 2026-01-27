@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace = "com.trackapp.habity"
+    namespace = "com.carmaintenance.tracker"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.trackapp.habity"
+        applicationId = "com.carmaintenance.tracker"
         minSdk = 24
         targetSdk = 36
         versionCode = 3

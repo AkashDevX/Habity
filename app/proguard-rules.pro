@@ -27,7 +27,7 @@
 -keep class * extends android.content.BroadcastReceiver
 
 # Keep database entities
--keep class com.trackapp.habity.database.** { *; }
+-keep class com.carmaintenance.tracker.database.** { *; }
 
 # Keep ViewModels
--keep class com.trackapp.habity.viewmodel.** { *; }
+-keep class com.carmaintenance.tracker.viewmodel.** { *; }

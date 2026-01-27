@@ -89,7 +89,7 @@ public class CalendarActivity extends AppCompatActivity {
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 7);
         recyclerViewCalendar.setLayoutManager(gridLayoutManager);
         recyclerViewCalendar.setAdapter(calendarAdapter);
-        recyclerViewCalendar.setHasFixedSize(true);
+//        recyclerViewCalendar.setHasFixedSize(true);
         
         // Setup day habits list
         dateHabitsAdapter = new DateHabitsAdapter();

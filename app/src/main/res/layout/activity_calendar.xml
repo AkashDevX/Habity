@@ -41,7 +41,7 @@
                         android:src="@android:drawable/ic_media_previous"
                         android:contentDescription="Previous month"
                         android:background="?attr/selectableItemBackgroundBorderless"
-                        android:tint="@color/text_white" />
+                        app:tint="@color/text_white" />
 
                     <TextView
                         android:id="@+id/textViewMonthYear"
@@ -63,7 +63,7 @@
                         android:src="@android:drawable/ic_media_next"
                         android:contentDescription="Next month"
                         android:background="?attr/selectableItemBackgroundBorderless"
-                        android:tint="@color/text_white" />
+                        app:tint="@color/text_white" />
 
                 </LinearLayout>
 

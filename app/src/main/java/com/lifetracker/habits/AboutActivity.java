@@ -17,6 +17,7 @@ public class AboutActivity extends AppCompatActivity {
         setContentView(R.layout.activity_about);
         
         // Override transition
+
         overridePendingTransition(R.anim.slide_in_right, android.R.anim.fade_out);
         
         if (getSupportActionBar() != null) {

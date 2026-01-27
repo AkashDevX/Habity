@@ -9,11 +9,6 @@
 -keepattributes SourceFile,LineNumberTable
 -renamesourcefileattribute SourceFile
 
-# Keep Room database classes
--keep class * extends androidx.room.RoomDatabase
--keep @androidx.room.Entity class *
--keep class * extends androidx.room.RoomDatabase$Callback
-
 # Keep ViewModels
 -keep class * extends androidx.lifecycle.ViewModel
 -keep class * extends androidx.lifecycle.AndroidViewModel
@@ -23,11 +18,5 @@
     public static final android.os.Parcelable$Creator *;
 }
 
-# Keep BroadcastReceivers
--keep class * extends android.content.BroadcastReceiver
-
-# Keep database entities
--keep class com.trackapp.habity.database.** { *; }
-
-# Keep ViewModels
--keep class com.trackapp.habity.viewmodel.** { *; }
+# Keep Unitify app classes
+-keep class com.unitify.app.** { *; }

@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace = "com.trackapp.habity"
+    namespace = "com.unitify.app"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.trackapp.habity"
+        applicationId = "com.unitify.app"
         minSdk = 24
         targetSdk = 36
         versionCode = 3
@@ -41,9 +41,8 @@ dependencies {
     implementation(libs.recyclerview)
     implementation(libs.gridlayout)
     
-    // Room
-    implementation(libs.room.runtime)
-    annotationProcessor(libs.room.compiler)
+    // Gson for JSON serialization
+    implementation(libs.gson)
     
     // Lifecycle
     implementation(libs.lifecycle.viewmodel)

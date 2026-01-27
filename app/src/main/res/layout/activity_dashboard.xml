@@ -6,16 +6,17 @@
     android:layout_height="match_parent"
     android:fillViewport="true"
     android:background="@color/background_purple"
+    android:fitsSystemWindows="true"
     tools:context=".DashboardActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingTop="56dp"
-        android:paddingStart="24dp"
-        android:paddingEnd="24dp"
-        android:paddingBottom="24dp">
+        android:paddingTop="28dp"
+        android:paddingStart="18dp"
+        android:paddingEnd="18dp"
+        android:paddingBottom="28dp">
 
         <!-- Header Section -->
         <LinearLayout
@@ -23,173 +24,166 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="40dp">
+            android:gravity="center"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="32dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Habity"
-                android:textSize="42sp"
+                android:text="Unitify"
+                android:textSize="40sp"
                 android:textStyle="bold"
-                android:textColor="@color/text_white"
-                android:letterSpacing="0.05"
-                android:layout_marginBottom="12dp"
+                android:textColor="@color/text_primary"
+                android:layout_marginBottom="8dp"
                 android:fontFamily="@font/font_family_poppins"
                 android:fontWeight="700" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Track your habits, build your routine"
-                android:textSize="16sp"
-                android:textColor="@color/text_white_secondary"
+                android:text="Convert units offline, anytime"
+                android:textSize="15sp"
+                android:textColor="@color/text_secondary"
                 android:gravity="center"
                 android:fontFamily="@font/font_family_poppins"
                 android:fontWeight="400" />
 
         </LinearLayout>
 
-        <!-- Row 1: Today and Calendar -->
+        <!-- Row 1: Converter and Favorites -->
         <LinearLayout
             android:id="@+id/row1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginBottom="16dp">
+            android:layout_marginBottom="14dp">
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/tileToday"
+                android:id="@+id/tileConverter"
                 android:layout_width="0dp"
-                android:layout_height="200dp"
+                android:layout_height="180dp"
                 android:layout_weight="1"
-                android:layout_marginEnd="8dp"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="4dp"
+                android:layout_marginEnd="7dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="0dp"
+                app:cardMaxElevation="0dp"
                 app:cardBackgroundColor="@color/card_purple"
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="?attr/selectableItemBackground"
-                android:stateListAnimator="@animator/card_elevation">
+                android:stateListAnimator="@null">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
-                    android:paddingTop="20dp"
-                    android:paddingBottom="24dp"
-                    android:paddingStart="16dp"
-                    android:paddingEnd="16dp"
-                    android:gravity="center">
+                    android:padding="18dp"
+                    android:gravity="center"
+                    android:background="@drawable/tile_background_converter">
 
                     <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
+                        android:layout_width="68dp"
+                        android:layout_height="68dp"
                         android:gravity="center"
-                        android:layout_gravity="center">
-
-                        <TextView
-                            android:layout_width="64dp"
-                            android:layout_height="64dp"
-                            android:text="✅"
-                            android:textSize="40sp"
-                            android:gravity="center"
-                            android:background="@drawable/icon_background_blue"
-                            android:layout_marginBottom="12dp" />
+                        android:background="@drawable/icon_background_gold"
+                        android:layout_marginBottom="14dp">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Today"
-                            android:textSize="20sp"
-                            android:textStyle="bold"
-                            android:textColor="@color/text_white"
-                            android:layout_marginBottom="6dp"
-                            android:fontFamily="@font/font_family_poppins"
-                            android:fontWeight="700" />
+                            android:text="🔄"
+                            android:textSize="36sp" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="View your daily habits"
-                            android:textSize="15sp"
-                            android:textColor="#FFFFFF"
-                            android:gravity="center"
-                            android:maxLines="2"
-                            android:ellipsize="none"
-                            android:includeFontPadding="false"
-                            android:fontFamily="@font/font_family_poppins"
-                            android:fontWeight="400" />
                     </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Converter"
+                        android:textSize="19sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_primary"
+                        android:layout_marginBottom="5dp"
+                        android:fontFamily="@font/font_family_poppins"
+                        android:fontWeight="700" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Unit Converter"
+                        android:textSize="12sp"
+                        android:textColor="@color/text_secondary"
+                        android:gravity="center"
+                        android:maxLines="2"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/font_family_poppins"
+                        android:fontWeight="400" />
 
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/tileCalendar"
+                android:id="@+id/tileFavorites"
                 android:layout_width="0dp"
-                android:layout_height="200dp"
+                android:layout_height="180dp"
                 android:layout_weight="1"
-                android:layout_marginStart="8dp"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="4dp"
+                android:layout_marginStart="7dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="0dp"
+                app:cardMaxElevation="0dp"
                 app:cardBackgroundColor="@color/card_purple"
                 android:clickable="true"
                 android:focusable="true"
-                android:foreground="?attr/selectableItemBackground">
+                android:foreground="?attr/selectableItemBackground"
+                android:stateListAnimator="@null">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
-                    android:paddingTop="20dp"
-                    android:paddingBottom="24dp"
-                    android:paddingStart="16dp"
-                    android:paddingEnd="16dp"
-                    android:gravity="center">
+                    android:padding="18dp"
+                    android:gravity="center"
+                    android:background="@drawable/tile_background_favorites">
 
                     <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
+                        android:layout_width="68dp"
+                        android:layout_height="68dp"
                         android:gravity="center"
-                        android:layout_gravity="center">
-
-                        <TextView
-                            android:layout_width="64dp"
-                            android:layout_height="64dp"
-                            android:text="📆"
-                            android:textSize="40sp"
-                            android:gravity="center"
-                            android:background="@drawable/icon_background_blue"
-                            android:layout_marginBottom="12dp" />
+                        android:background="@drawable/icon_background_gold"
+                        android:layout_marginBottom="14dp">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Calendar"
-                            android:textSize="20sp"
-                            android:textStyle="bold"
-                            android:textColor="@color/text_white"
-                            android:layout_marginBottom="6dp"
-                            android:fontFamily="@font/font_family_poppins"
-                            android:fontWeight="700" />
+                            android:text="⭐"
+                            android:textSize="36sp" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Track your progress"
-                            android:textSize="15sp"
-                            android:textColor="#FFFFFF"
-                            android:gravity="center"
-                            android:maxLines="2"
-                            android:ellipsize="none"
-                            android:includeFontPadding="false"
-                            android:fontFamily="@font/font_family_poppins"
-                            android:fontWeight="400" />
                     </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Favorites"
+                        android:textSize="19sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_primary"
+                        android:layout_marginBottom="5dp"
+                        android:fontFamily="@font/font_family_poppins"
+                        android:fontWeight="700" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Saved Conversions"
+                        android:textSize="12sp"
+                        android:textColor="@color/text_secondary"
+                        android:gravity="center"
+                        android:maxLines="2"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/font_family_poppins"
+                        android:fontWeight="400" />
 
                 </LinearLayout>
 
@@ -197,145 +191,138 @@
 
         </LinearLayout>
 
-        <!-- Row 2: Stats and About -->
+        <!-- Row 2: History and Settings -->
         <LinearLayout
             android:id="@+id/row2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="16dp">
+            android:orientation="horizontal">
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/tileStats"
+                android:id="@+id/tileHistory"
                 android:layout_width="0dp"
-                android:layout_height="200dp"
+                android:layout_height="180dp"
                 android:layout_weight="1"
-                android:layout_marginEnd="8dp"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="4dp"
+                android:layout_marginEnd="7dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="0dp"
+                app:cardMaxElevation="0dp"
                 app:cardBackgroundColor="@color/card_purple"
                 android:clickable="true"
                 android:focusable="true"
-                android:foreground="?attr/selectableItemBackground">
+                android:foreground="?attr/selectableItemBackground"
+                android:stateListAnimator="@null">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
-                    android:paddingTop="20dp"
-                    android:paddingBottom="24dp"
-                    android:paddingStart="16dp"
-                    android:paddingEnd="16dp"
-                    android:gravity="center">
+                    android:padding="18dp"
+                    android:gravity="center"
+                    android:background="@drawable/tile_background_history">
 
                     <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
+                        android:layout_width="68dp"
+                        android:layout_height="68dp"
                         android:gravity="center"
-                        android:layout_gravity="center">
-
-                        <TextView
-                            android:layout_width="64dp"
-                            android:layout_height="64dp"
-                            android:text="📊"
-                            android:textSize="40sp"
-                            android:gravity="center"
-                            android:background="@drawable/icon_background_purple"
-                            android:layout_marginBottom="12dp" />
+                        android:background="@drawable/icon_background_gold"
+                        android:layout_marginBottom="14dp">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Stats"
-                            android:textSize="20sp"
-                            android:textStyle="bold"
-                            android:textColor="@color/text_white"
-                            android:layout_marginBottom="6dp"
-                            android:fontFamily="@font/font_family_poppins"
-                            android:fontWeight="700" />
+                            android:text="📜"
+                            android:textSize="36sp" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="View detailed analytics"
-                            android:textSize="15sp"
-                            android:textColor="#FFFFFF"
-                            android:gravity="center"
-                            android:maxLines="2"
-                            android:ellipsize="none"
-                            android:includeFontPadding="false"
-                            android:fontFamily="@font/font_family_poppins"
-                            android:fontWeight="400" />
                     </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="History"
+                        android:textSize="19sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_primary"
+                        android:layout_marginBottom="5dp"
+                        android:fontFamily="@font/font_family_poppins"
+                        android:fontWeight="700" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Recent Activity"
+                        android:textSize="12sp"
+                        android:textColor="@color/text_secondary"
+                        android:gravity="center"
+                        android:maxLines="2"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/font_family_poppins"
+                        android:fontWeight="400" />
 
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/tileAbout"
+                android:id="@+id/tileSettings"
                 android:layout_width="0dp"
-                android:layout_height="200dp"
+                android:layout_height="180dp"
                 android:layout_weight="1"
-                android:layout_marginStart="8dp"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="4dp"
+                android:layout_marginStart="7dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="0dp"
+                app:cardMaxElevation="0dp"
                 app:cardBackgroundColor="@color/card_purple"
                 android:clickable="true"
                 android:focusable="true"
-                android:foreground="?attr/selectableItemBackground">
+                android:foreground="?attr/selectableItemBackground"
+                android:stateListAnimator="@null">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
-                    android:paddingTop="20dp"
-                    android:paddingBottom="24dp"
-                    android:paddingStart="16dp"
-                    android:paddingEnd="16dp"
-                    android:gravity="center">
+                    android:padding="18dp"
+                    android:gravity="center"
+                    android:background="@drawable/tile_background_settings">
 
                     <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
+                        android:layout_width="68dp"
+                        android:layout_height="68dp"
                         android:gravity="center"
-                        android:layout_gravity="center">
-
-                        <TextView
-                            android:layout_width="64dp"
-                            android:layout_height="64dp"
-                            android:text="ℹ️"
-                            android:textSize="40sp"
-                            android:gravity="center"
-                            android:background="@drawable/icon_background_purple"
-                            android:layout_marginBottom="12dp" />
+                        android:background="@drawable/icon_background_gold"
+                        android:layout_marginBottom="14dp">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="About"
-                            android:textSize="20sp"
-                            android:textStyle="bold"
-                            android:textColor="@color/text_white"
-                            android:layout_marginBottom="6dp"
-                            android:fontFamily="@font/font_family_poppins"
-                            android:fontWeight="700" />
+                            android:text="⚙️"
+                            android:textSize="36sp" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Learn more about Habity"
-                            android:textSize="15sp"
-                            android:textColor="#FFFFFF"
-                            android:gravity="center"
-                            android:maxLines="2"
-                            android:ellipsize="none"
-                            android:includeFontPadding="false"
-                            android:fontFamily="@font/font_family_poppins"
-                            android:fontWeight="400" />
                     </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Settings"
+                        android:textSize="19sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_primary"
+                        android:layout_marginBottom="5dp"
+                        android:fontFamily="@font/font_family_poppins"
+                        android:fontWeight="700" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Preferences"
+                        android:textSize="12sp"
+                        android:textColor="@color/text_secondary"
+                        android:gravity="center"
+                        android:maxLines="2"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/font_family_poppins"
+                        android:fontWeight="400" />
 
                 </LinearLayout>
 
@@ -343,45 +330,145 @@
 
         </LinearLayout>
 
-        <!-- Row 3: Add New Habit (full width) -->
-        <androidx.cardview.widget.CardView
-            android:id="@+id/tileAddHabit"
+        <!-- Row 3: About and Privacy Policy -->
+        <LinearLayout
+            android:id="@+id/row3"
             android:layout_width="match_parent"
-            android:layout_height="140dp"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="4dp"
-            app:cardBackgroundColor="@color/card_purple"
-            android:clickable="true"
-            android:focusable="true"
-            android:foreground="?attr/selectableItemBackground">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="14dp">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:gravity="center"
-                android:padding="20dp">
+            <androidx.cardview.widget.CardView
+                android:id="@+id/tileAbout"
+                android:layout_width="0dp"
+                android:layout_height="180dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="7dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="0dp"
+                app:cardMaxElevation="0dp"
+                app:cardBackgroundColor="@color/card_purple"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:stateListAnimator="@null">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="➕"
-                    android:textSize="48sp"
-                    android:layout_marginEnd="16dp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="18dp"
+                    android:gravity="center"
+                    android:background="@drawable/tile_background_settings">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Add New Habit"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/text_white"
-                    android:fontFamily="@font/font_family_poppins"
-                    android:fontWeight="700" />
+                    <LinearLayout
+                        android:layout_width="68dp"
+                        android:layout_height="68dp"
+                        android:gravity="center"
+                        android:background="@drawable/icon_background_gold"
+                        android:layout_marginBottom="14dp">
 
-            </LinearLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="ℹ️"
+                            android:textSize="36sp" />
 
-        </androidx.cardview.widget.CardView>
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="About"
+                        android:textSize="19sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_primary"
+                        android:layout_marginBottom="5dp"
+                        android:fontFamily="@font/font_family_poppins"
+                        android:fontWeight="700" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="App Information"
+                        android:textSize="12sp"
+                        android:textColor="@color/text_secondary"
+                        android:gravity="center"
+                        android:maxLines="2"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/font_family_poppins"
+                        android:fontWeight="400" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/tilePrivacy"
+                android:layout_width="0dp"
+                android:layout_height="180dp"
+                android:layout_weight="1"
+                android:layout_marginStart="7dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="0dp"
+                app:cardMaxElevation="0dp"
+                app:cardBackgroundColor="@color/card_purple"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:stateListAnimator="@null">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="18dp"
+                    android:gravity="center"
+                    android:background="@drawable/tile_background_settings">
+
+                    <LinearLayout
+                        android:layout_width="68dp"
+                        android:layout_height="68dp"
+                        android:gravity="center"
+                        android:background="@drawable/icon_background_gold"
+                        android:layout_marginBottom="14dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🔒"
+                            android:textSize="36sp" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Privacy"
+                        android:textSize="19sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_primary"
+                        android:layout_marginBottom="5dp"
+                        android:fontFamily="@font/font_family_poppins"
+                        android:fontWeight="700" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Privacy Policy"
+                        android:textSize="12sp"
+                        android:textColor="@color/text_secondary"
+                        android:gravity="center"
+                        android:maxLines="2"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/font_family_poppins"
+                        android:fontWeight="400" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
 
     </LinearLayout>
 

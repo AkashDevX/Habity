@@ -2,9 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -13,7 +10,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Habity">
+        android:theme="@style/Theme.Unitify">
         <activity
             android:name=".DashboardActivity"
             android:exported="true">
@@ -24,17 +21,22 @@
         </activity>
         
         <activity
-            android:name=".TodayActivity"
+            android:name=".ConverterActivity"
             android:exported="false"
             android:parentActivityName=".DashboardActivity" />
         
         <activity
-            android:name=".CalendarActivity"
+            android:name=".FavoritesActivity"
             android:exported="false"
             android:parentActivityName=".DashboardActivity" />
         
         <activity
-            android:name=".StatsActivity"
+            android:name=".HistoryActivity"
+            android:exported="false"
+            android:parentActivityName=".DashboardActivity" />
+        
+        <activity
+            android:name=".SettingsActivity"
             android:exported="false"
             android:parentActivityName=".DashboardActivity" />
         
@@ -46,39 +48,7 @@
         <activity
             android:name=".PrivacyPolicyActivity"
             android:exported="false"
-            android:parentActivityName=".AboutActivity" />
-        
-        <activity
-            android:name=".AddEditHabitActivity"
-            android:exported="false"
             android:parentActivityName=".DashboardActivity" />
-        
-        <activity
-            android:name=".HabitRemindersActivity"
-            android:exported="false"
-            android:parentActivityName=".DashboardActivity" />
-        
-        <activity
-            android:name=".MainActivity"
-            android:exported="false" />
-        
-        <!-- ReminderReceiver for handling alarm triggers -->
-        <receiver
-            android:name=".reminders.ReminderReceiver"
-            android:exported="false" />
-        
-        <!-- BootReceiver for rescheduling alarms after reboot -->
-        <receiver
-            android:name=".reminders.BootReceiver"
-            android:exported="false"
-            android:enabled="true"
-            android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </receiver>
     </application>
 
 </manifest>

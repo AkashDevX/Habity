@@ -19,5 +19,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Habity"
+rootProject.name = "Unitify"
 include(":app")

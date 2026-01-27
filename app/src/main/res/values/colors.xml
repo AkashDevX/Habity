@@ -3,31 +3,31 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     
-    <!-- Primary Colors - Purple Theme -->
-    <color name="primary">#6366F1</color>
-    <color name="primary_dark">#4F46E5</color>
-    <color name="primary_light">#818CF8</color>
+    <!-- Primary Colors - Warm Yellow/Gold Theme -->
+    <color name="primary">#F59E0B</color>
+    <color name="primary_dark">#D97706</color>
+    <color name="primary_light">#FCD34D</color>
     
-    <!-- Purple Theme Background -->
-    <color name="background_purple">#1A0B2E</color>
-    <color name="background_purple_dark">#16213E</color>
-    <color name="card_purple">#2D1B4E</color>
-    <color name="card_purple_light">#3D2B5E</color>
+    <!-- Warm Yellow Background and Cards - Complementary colors -->
+    <color name="background_purple">#FFF8E1</color>
+    <color name="background_purple_dark">#FFF3C4</color>
+    <color name="card_purple">#FFFFFF</color>
+    <color name="card_purple_light">#FFFFFF</color>
     
     <!-- Accent Colors -->
-    <color name="accent">#10B981</color>
-    <color name="accent_dark">#059669</color>
+    <color name="accent">#FBBF24</color>
+    <color name="accent_dark">#F59E0B</color>
     
     <!-- Background Colors -->
-    <color name="background_light">#F9FAFB</color>
+    <color name="background_light">#FFF8E1</color>
     <color name="background_card">#FFFFFF</color>
     
     <!-- Text Colors -->
-    <color name="text_primary">#111827</color>
-    <color name="text_secondary">#6B7280</color>
-    <color name="text_hint">#9CA3AF</color>
-    <color name="text_white">#FFFFFF</color>
-    <color name="text_white_secondary">#E0E0E0</color>
+    <color name="text_primary">#1C1917</color>
+    <color name="text_secondary">#78716C</color>
+    <color name="text_hint">#A8A29E</color>
+    <color name="text_white">#1C1917</color>
+    <color name="text_white_secondary">#78716C</color>
     
     <!-- Status Colors -->
     <color name="success">#10B981</color>
@@ -40,13 +40,13 @@
     <color name="icon_location_red">#EF4444</color>
     <color name="icon_activity_gold">#F59E0B</color>
     <color name="icon_todo_green">#10B981</color>
-    <color name="icon_settings_purple">#8B5CF6</color>
+    <color name="icon_settings_purple">#F59E0B</color>
     
-    <!-- Tile Colors -->
-    <color name="tile_today">#3B82F6</color>
-    <color name="tile_calendar">#8B5CF6</color>
-    <color name="tile_stats">#EC4899</color>
-    <color name="tile_about">#14B8A6</color>
+    <!-- Tile Colors - Yellow/Gold Gradient -->
+    <color name="tile_today">#FEF3C7</color>
+    <color name="tile_calendar">#FDE68A</color>
+    <color name="tile_stats">#FCD34D</color>
+    <color name="tile_about">#FBBF24</color>
     
     <!-- Notification Badge -->
     <color name="notification_badge">#EF4444</color>

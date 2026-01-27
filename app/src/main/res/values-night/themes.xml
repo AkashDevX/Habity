@@ -1,7 +1,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.HabitTracker" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Orange/Amber Warm Dark Theme -->
+    <style name="Base.Theme.CarMaintenance" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Automotive Blue Dark Theme -->
         <item name="colorPrimary">@color/primary</item>
         <item name="colorPrimaryVariant">@color/primary_dark</item>
         <item name="colorOnPrimary">@color/text_white</item>
@@ -9,7 +9,7 @@
         <item name="colorSecondaryVariant">@color/accent_dark</item>
         <item name="colorOnSecondary">@color/text_white</item>
         <item name="android:statusBarColor">@color/primary_dark</item>
-        <item name="android:navigationBarColor">#1C1917</item>
+        <item name="android:navigationBarColor">#0F172A</item>
         <item name="android:windowLightStatusBar">false</item>
     </style>
 </resources>

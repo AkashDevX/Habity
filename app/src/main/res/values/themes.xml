@@ -1,7 +1,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.HabitTracker" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Orange/Amber Warm Theme -->
+    <style name="Base.Theme.CarMaintenance" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Automotive Blue Theme -->
         <item name="colorPrimary">@color/primary</item>
         <item name="colorPrimaryVariant">@color/primary_dark</item>
         <item name="colorOnPrimary">@color/text_white</item>
@@ -13,5 +13,5 @@
         <item name="android:windowLightStatusBar">false</item>
     </style>
 
-    <style name="Theme.HabitTracker" parent="Base.Theme.HabitTracker" />
+    <style name="Theme.CarMaintenance" parent="Base.Theme.CarMaintenance" />
 </resources>

@@ -68,7 +68,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Habity (&quot;we&quot;, &quot;our&quot;, or &quot;us&quot;) is committed to protecting your privacy. This Privacy Policy explains how we handle your data when you use our habit tracking application."
+                    android:text="Car Maintenance Tracker (&quot;we&quot;, &quot;our&quot;, or &quot;us&quot;) is committed to protecting your privacy. This Privacy Policy explains how we handle your data when you use our car maintenance tracking application."
                     android:textSize="15sp"
                     android:textColor="@color/text_white"
                     android:lineSpacingExtra="5dp"
@@ -91,7 +91,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Habity is an offline-first application. All your data, including habits, reminders, and completion records, is stored locally on your device. We do not collect, transmit, or share any personal data with third parties."
+                    android:text="Car Maintenance Tracker is an offline-first application. All your data, including service records, fuel logs, and maintenance reminders, is stored locally on your device. We do not collect, transmit, or share any personal data with third parties."
                     android:textSize="15sp"
                     android:textColor="@color/text_white"
                     android:lineSpacingExtra="5dp"
@@ -114,7 +114,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Habity requests the following permissions:\n\n• POST_NOTIFICATIONS: To send you reminders about your habits\n• RECEIVE_BOOT_COMPLETED: To reschedule reminders after device restart\n• SCHEDULE_EXACT_ALARM: To schedule precise reminder notifications\n• USE_EXACT_ALARM: To ensure reminders work accurately\n\nThese permissions are essential for the core functionality of the app and are not used for any data collection or tracking purposes."
+                    android:text="Car Maintenance Tracker requests the following permissions:\n\n• POST_NOTIFICATIONS: To send you reminders about your car maintenance\n• RECEIVE_BOOT_COMPLETED: To reschedule reminders after device restart\n• SCHEDULE_EXACT_ALARM: To schedule precise reminder notifications\n• USE_EXACT_ALARM: To ensure reminders work accurately\n\nThese permissions are essential for the core functionality of the app and are not used for any data collection or tracking purposes."
                     android:textSize="15sp"
                     android:textColor="@color/text_white"
                     android:lineSpacingExtra="5dp"
@@ -160,7 +160,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Habity does not use any third-party analytics, advertising, or tracking services. The app operates entirely offline and does not integrate with any external services that would collect your data."
+                    android:text="Car Maintenance Tracker does not use any third-party analytics, advertising, or tracking services. The app operates entirely offline and does not integrate with any external services that would collect your data."
                     android:textSize="15sp"
                     android:textColor="@color/text_white"
                     android:lineSpacingExtra="5dp"
@@ -206,7 +206,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Habity does not knowingly collect any information from children under the age of 13. Since we do not collect any data, this is not applicable, but we want to make this clear."
+                    android:text="Car Maintenance Tracker does not knowingly collect any information from children under the age of 13. Since we do not collect any data, this is not applicable, but we want to make this clear."
                     android:textSize="15sp"
                     android:textColor="@color/text_white"
                     android:lineSpacingExtra="5dp"

@@ -15,9 +15,9 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.HabitTracker">
+        android:theme="@style/Theme.CarMaintenance">
         <activity
-            android:name="com.lifetracker.habits.DashboardActivity"
+            android:name="com.carmaintenance.tracker.DashboardActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,57 +26,48 @@
         </activity>
         
         <activity
-            android:name="com.lifetracker.habits.TodayActivity"
+            android:name="com.carmaintenance.tracker.StatsActivity"
             android:exported="false"
-            android:parentActivityName="com.lifetracker.habits.DashboardActivity" />
+            android:parentActivityName="com.carmaintenance.tracker.DashboardActivity" />
         
         <activity
-            android:name="com.lifetracker.habits.CalendarActivity"
+            android:name="com.carmaintenance.tracker.AboutActivity"
             android:exported="false"
-            android:parentActivityName="com.lifetracker.habits.DashboardActivity" />
+            android:parentActivityName="com.carmaintenance.tracker.DashboardActivity" />
         
         <activity
-            android:name="com.lifetracker.habits.StatsActivity"
+            android:name="com.carmaintenance.tracker.AddEditServiceActivity"
             android:exported="false"
-            android:parentActivityName="com.lifetracker.habits.DashboardActivity" />
+            android:parentActivityName="com.carmaintenance.tracker.DashboardActivity" />
         
         <activity
-            android:name="com.lifetracker.habits.AboutActivity"
+            android:name="com.carmaintenance.tracker.RemindersActivity"
             android:exported="false"
-            android:parentActivityName="com.lifetracker.habits.DashboardActivity" />
+            android:parentActivityName="com.carmaintenance.tracker.DashboardActivity" />
         
         <activity
-            android:name="com.lifetracker.habits.ProgressActivity"
+            android:name="com.carmaintenance.tracker.ServiceHistoryActivity"
             android:exported="false"
-            android:parentActivityName="com.lifetracker.habits.DashboardActivity" />
+            android:parentActivityName="com.carmaintenance.tracker.DashboardActivity" />
         
         <activity
-            android:name="com.lifetracker.habits.CategoriesActivity"
+            android:name="com.carmaintenance.tracker.FuelLogActivity"
             android:exported="false"
-            android:parentActivityName="com.lifetracker.habits.DashboardActivity" />
+            android:parentActivityName="com.carmaintenance.tracker.DashboardActivity" />
         
         <activity
-            android:name="com.lifetracker.habits.AddEditHabitActivity"
+            android:name="com.carmaintenance.tracker.AddEditFuelActivity"
             android:exported="false"
-            android:parentActivityName="com.lifetracker.habits.DashboardActivity" />
-        
-        <activity
-            android:name="com.lifetracker.habits.HabitRemindersActivity"
-            android:exported="false"
-            android:parentActivityName="com.lifetracker.habits.DashboardActivity" />
-        
-        <activity
-            android:name="com.lifetracker.habits.MainActivity"
-            android:exported="false" />
+            android:parentActivityName="com.carmaintenance.tracker.FuelLogActivity" />
         
         <!-- ReminderReceiver for handling alarm triggers -->
         <receiver
-            android:name="com.lifetracker.habits.reminders.ReminderReceiver"
+            android:name="com.carmaintenance.tracker.reminders.ReminderReceiver"
             android:exported="false" />
         
         <!-- BootReceiver for rescheduling alarms after reboot -->
         <receiver
-            android:name="com.lifetracker.habits.reminders.BootReceiver"
+            android:name="com.carmaintenance.tracker.reminders.BootReceiver"
             android:exported="false"
             android:enabled="true"
             android:permission="android.permission.RECEIVE_BOOT_COMPLETED">

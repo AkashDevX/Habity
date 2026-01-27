@@ -5,268 +5,167 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background_purple"
-    android:fillViewport="true"
     tools:context=".PrivacyPolicyActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingTop="56dp"
+        android:paddingTop="24dp"
         android:paddingStart="24dp"
         android:paddingEnd="24dp"
         android:paddingBottom="24dp">
 
-        <!-- Title -->
-        <TextView
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Privacy Policy"
-            android:textSize="32sp"
-            android:textStyle="bold"
-            android:textColor="@color/text_white"
-            android:layout_marginBottom="8dp"
-            android:fontFamily="@font/font_family_poppins"
-            android:fontWeight="700" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Last updated: January 2026"
-            android:textSize="14sp"
-            android:textColor="@color/text_white_secondary"
-            android:layout_marginBottom="24dp"
-            android:fontFamily="@font/font_family_poppins"
-            android:fontWeight="400" />
-
-        <!-- Content Card -->
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
             app:cardCornerRadius="20dp"
-            app:cardElevation="6dp"
+            app:cardElevation="8dp"
             app:cardBackgroundColor="@color/card_purple">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="22dp">
+                android:padding="20dp">
 
-                <!-- Introduction -->
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Introduction"
-                    android:textSize="20sp"
+                    android:text="Privacy Policy"
+                    android:textSize="24sp"
                     android:textStyle="bold"
                     android:textColor="@color/text_white"
-                    android:layout_marginBottom="12dp"
+                    android:layout_marginBottom="16dp"
                     android:fontFamily="@font/font_family_poppins"
                     android:fontWeight="700" />
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Habity (&quot;we&quot;, &quot;our&quot;, or &quot;us&quot;) is committed to protecting your privacy. This Privacy Policy explains how we handle your data when you use our habit tracking application."
-                    android:textSize="15sp"
-                    android:textColor="@color/text_white"
-                    android:lineSpacingExtra="5dp"
-                    android:layout_marginBottom="24dp"
+                    android:text="Last updated: January 2024"
+                    android:textSize="12sp"
+                    android:textColor="@color/text_white_secondary"
+                    android:layout_marginBottom="20dp"
                     android:fontFamily="@font/font_family_poppins"
                     android:fontWeight="400" />
 
-                <!-- Data Collection -->
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Data Collection"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     android:textStyle="bold"
                     android:textColor="@color/text_white"
-                    android:layout_marginBottom="12dp"
+                    android:layout_marginBottom="8dp"
                     android:fontFamily="@font/font_family_poppins"
                     android:fontWeight="700" />
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Habity is an offline-first application. All your data, including habits, reminders, and completion records, is stored locally on your device. We do not collect, transmit, or share any personal data with third parties."
-                    android:textSize="15sp"
-                    android:textColor="@color/text_white"
-                    android:lineSpacingExtra="5dp"
-                    android:layout_marginBottom="24dp"
+                    android:text="WaterMark collects and stores your water intake data locally on your device. All data is stored offline and is never transmitted to external servers. We do not collect any personal information, location data, or usage analytics."
+                    android:textSize="14sp"
+                    android:textColor="@color/text_white_secondary"
+                    android:lineSpacingExtra="4dp"
+                    android:layout_marginBottom="20dp"
                     android:fontFamily="@font/font_family_poppins"
                     android:fontWeight="400" />
 
-                <!-- Permissions -->
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Permissions"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/text_white"
-                    android:layout_marginBottom="12dp"
-                    android:fontFamily="@font/font_family_poppins"
-                    android:fontWeight="700" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Habity requests the following permissions:\n\n• POST_NOTIFICATIONS: To send you reminders about your habits\n• RECEIVE_BOOT_COMPLETED: To reschedule reminders after device restart\n• SCHEDULE_EXACT_ALARM: To schedule precise reminder notifications\n• USE_EXACT_ALARM: To ensure reminders work accurately\n\nThese permissions are essential for the core functionality of the app and are not used for any data collection or tracking purposes."
-                    android:textSize="15sp"
-                    android:textColor="@color/text_white"
-                    android:lineSpacingExtra="5dp"
-                    android:layout_marginBottom="24dp"
-                    android:fontFamily="@font/font_family_poppins"
-                    android:fontWeight="400" />
-
-                <!-- Data Storage -->
-                <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Data Storage"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     android:textStyle="bold"
                     android:textColor="@color/text_white"
-                    android:layout_marginBottom="12dp"
+                    android:layout_marginBottom="8dp"
                     android:fontFamily="@font/font_family_poppins"
                     android:fontWeight="700" />
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="All your habit data is stored in a local database on your device. This includes:\n\n• Habit names and settings\n• Reminder schedules\n• Completion records\n• Statistics and progress data\n\nThis data remains on your device and is never transmitted to external servers."
-                    android:textSize="15sp"
-                    android:textColor="@color/text_white"
-                    android:lineSpacingExtra="5dp"
-                    android:layout_marginBottom="24dp"
+                    android:text="All your water intake records, goals, and settings are stored locally on your device using Android's Room database. This data remains on your device and is not accessible to us or any third parties."
+                    android:textSize="14sp"
+                    android:textColor="@color/text_white_secondary"
+                    android:lineSpacingExtra="4dp"
+                    android:layout_marginBottom="20dp"
                     android:fontFamily="@font/font_family_poppins"
                     android:fontWeight="400" />
 
-                <!-- Third-Party Services -->
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Third-Party Services"
-                    android:textSize="20sp"
+                    android:text="Permissions"
+                    android:textSize="18sp"
                     android:textStyle="bold"
                     android:textColor="@color/text_white"
-                    android:layout_marginBottom="12dp"
+                    android:layout_marginBottom="8dp"
                     android:fontFamily="@font/font_family_poppins"
                     android:fontWeight="700" />
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Habity does not use any third-party analytics, advertising, or tracking services. The app operates entirely offline and does not integrate with any external services that would collect your data."
-                    android:textSize="15sp"
-                    android:textColor="@color/text_white"
-                    android:lineSpacingExtra="5dp"
-                    android:layout_marginBottom="24dp"
+                    android:text="WaterMark requires the following permissions:\n\n• Notification Permission: To send reminder notifications for water intake\n• Boot Completed Permission: To reschedule reminders after device restart\n\nThese permissions are used solely for the app's core functionality and are not used for tracking or data collection."
+                    android:textSize="14sp"
+                    android:textColor="@color/text_white_secondary"
+                    android:lineSpacingExtra="4dp"
+                    android:layout_marginBottom="20dp"
                     android:fontFamily="@font/font_family_poppins"
                     android:fontWeight="400" />
 
-                <!-- Data Deletion -->
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Data Deletion"
-                    android:textSize="20sp"
+                    android:text="Data Export/Import"
+                    android:textSize="18sp"
                     android:textStyle="bold"
                     android:textColor="@color/text_white"
-                    android:layout_marginBottom="12dp"
+                    android:layout_marginBottom="8dp"
                     android:fontFamily="@font/font_family_poppins"
                     android:fontWeight="700" />
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="You can delete your data at any time by:\n\n• Deleting individual habits within the app\n• Uninstalling the app (which removes all local data)\n\nSince all data is stored locally, uninstalling the app will permanently delete all your habit data from your device."
-                    android:textSize="15sp"
-                    android:textColor="@color/text_white"
-                    android:lineSpacingExtra="5dp"
-                    android:layout_marginBottom="24dp"
+                    android:text="You can export your data to a JSON file at any time through the Settings screen. This export is stored locally on your device and can be imported back into the app. The export/import feature uses Android's Storage Access Framework and does not involve any external services."
+                    android:textSize="14sp"
+                    android:textColor="@color/text_white_secondary"
+                    android:lineSpacingExtra="4dp"
+                    android:layout_marginBottom="20dp"
                     android:fontFamily="@font/font_family_poppins"
                     android:fontWeight="400" />
 
-                <!-- Children's Privacy -->
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Children's Privacy"
-                    android:textSize="20sp"
+                    android:text="Contact"
+                    android:textSize="18sp"
                     android:textStyle="bold"
                     android:textColor="@color/text_white"
-                    android:layout_marginBottom="12dp"
+                    android:layout_marginBottom="8dp"
                     android:fontFamily="@font/font_family_poppins"
                     android:fontWeight="700" />
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Habity does not knowingly collect any information from children under the age of 13. Since we do not collect any data, this is not applicable, but we want to make this clear."
-                    android:textSize="15sp"
-                    android:textColor="@color/text_white"
-                    android:lineSpacingExtra="5dp"
-                    android:layout_marginBottom="24dp"
-                    android:fontFamily="@font/font_family_poppins"
-                    android:fontWeight="400" />
-
-                <!-- Changes to Privacy Policy -->
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Changes to This Privacy Policy"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/text_white"
-                    android:layout_marginBottom="12dp"
-                    android:fontFamily="@font/font_family_poppins"
-                    android:fontWeight="700" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="We may update this Privacy Policy from time to time. We will notify you of any changes by updating the &quot;Last updated&quot; date at the top of this policy. You are advised to review this Privacy Policy periodically for any changes."
-                    android:textSize="15sp"
-                    android:textColor="@color/text_white"
-                    android:lineSpacingExtra="5dp"
-                    android:layout_marginBottom="24dp"
-                    android:fontFamily="@font/font_family_poppins"
-                    android:fontWeight="400" />
-
-                <!-- Contact -->
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Contact Us"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/text_white"
-                    android:layout_marginBottom="12dp"
-                    android:fontFamily="@font/font_family_poppins"
-                    android:fontWeight="700" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="If you have any questions about this Privacy Policy, please contact us through the Google Play Store listing or via the app's About section."
-                    android:textSize="15sp"
-                    android:textColor="@color/text_white"
-                    android:lineSpacingExtra="5dp"
+                    android:text="If you have any questions about this Privacy Policy, please contact us through the app's support channels."
+                    android:textSize="14sp"
+                    android:textColor="@color/text_white_secondary"
+                    android:lineSpacingExtra="4dp"
                     android:fontFamily="@font/font_family_poppins"
                     android:fontWeight="400" />
 
             </LinearLayout>
 
-        </com.google.android.material.card.MaterialCardView>
+        </androidx.cardview.widget.CardView>
 
     </LinearLayout>
 
 </androidx.core.widget.NestedScrollView>
-
-
 
 

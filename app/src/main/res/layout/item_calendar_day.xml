@@ -5,9 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="60dp"
     android:layout_margin="2dp"
-    app:cardCornerRadius="8dp"
-    app:cardElevation="2dp"
-    app:cardBackgroundColor="@color/card_purple">
+    app:cardCornerRadius="12dp"
+    app:cardElevation="4dp"
+    app:cardBackgroundColor="@color/card_purple"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackground">
 
     <TextView
         android:id="@+id/textViewDay"
@@ -17,6 +20,8 @@
         android:text="1"
         android:textSize="16sp"
         android:textStyle="bold"
-        android:textColor="@color/text_white" />
+        android:textColor="@color/text_white"
+        android:fontFamily="@font/font_family_poppins"
+        android:fontWeight="700" />
 
 </androidx.cardview.widget.CardView>

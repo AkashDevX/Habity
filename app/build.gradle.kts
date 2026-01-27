@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace = "com.trackapp.habity"
+    namespace = "com.cleverkube.watermark"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.trackapp.habity"
+        applicationId = "com.cleverkube.watermark"
         minSdk = 24
         targetSdk = 36
         versionCode = 3
@@ -49,6 +49,9 @@ dependencies {
     implementation(libs.lifecycle.viewmodel)
     implementation(libs.lifecycle.livedata)
     implementation(libs.lifecycle.runtime)
+    
+    // Gson for JSON export/import
+    implementation(libs.gson)
     
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)

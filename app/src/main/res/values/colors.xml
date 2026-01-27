@@ -3,20 +3,20 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     
-    <!-- Primary Colors - Purple Theme -->
-    <color name="primary">#6366F1</color>
-    <color name="primary_dark">#4F46E5</color>
-    <color name="primary_light">#818CF8</color>
+    <!-- Primary Colors - Vibrant Water Theme -->
+    <color name="primary">#00D4FF</color>
+    <color name="primary_dark">#00B8E6</color>
+    <color name="primary_light">#40E5FF</color>
     
-    <!-- Purple Theme Background -->
-    <color name="background_purple">#1A0B2E</color>
-    <color name="background_purple_dark">#16213E</color>
-    <color name="card_purple">#2D1B4E</color>
-    <color name="card_purple_light">#3D2B5E</color>
+    <!-- Water Theme Background -->
+    <color name="background_purple">#0A1628</color>
+    <color name="background_purple_dark">#081420</color>
+    <color name="card_purple">#1E2A3A</color>
+    <color name="card_purple_light">#2A3A4E</color>
     
     <!-- Accent Colors -->
-    <color name="accent">#10B981</color>
-    <color name="accent_dark">#059669</color>
+    <color name="accent">#00FF88</color>
+    <color name="accent_dark">#00E676</color>
     
     <!-- Background Colors -->
     <color name="background_light">#F9FAFB</color>

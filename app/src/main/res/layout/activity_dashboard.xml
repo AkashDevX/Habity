@@ -29,7 +29,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Habity"
+                android:text="@string/app_name"
                 android:textSize="42sp"
                 android:textStyle="bold"
                 android:textColor="@color/text_white"
@@ -41,7 +41,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Track your habits, build your routine"
+                android:text="@string/app_tagline"
                 android:textSize="16sp"
                 android:textColor="@color/text_white_secondary"
                 android:gravity="center"
@@ -92,7 +92,7 @@
                         <TextView
                             android:layout_width="64dp"
                             android:layout_height="64dp"
-                            android:text="✅"
+                            android:text="💧"
                             android:textSize="40sp"
                             android:gravity="center"
                             android:background="@drawable/icon_background_blue"
@@ -101,7 +101,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Today"
+                            android:text="@string/home"
                             android:textSize="20sp"
                             android:textStyle="bold"
                             android:textColor="@color/text_white"
@@ -112,7 +112,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="View your daily habits"
+                            android:text="Track your water intake"
                             android:textSize="15sp"
                             android:textColor="#FFFFFF"
                             android:gravity="center"
@@ -169,7 +169,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Calendar"
+                            android:text="@string/history"
                             android:textSize="20sp"
                             android:textStyle="bold"
                             android:textColor="@color/text_white"
@@ -180,7 +180,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Track your progress"
+                            android:text="View past days"
                             android:textSize="15sp"
                             android:textColor="#FFFFFF"
                             android:gravity="center"
@@ -247,7 +247,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Stats"
+                            android:text="@string/stats"
                             android:textSize="20sp"
                             android:textStyle="bold"
                             android:textColor="@color/text_white"
@@ -258,7 +258,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="View detailed analytics"
+                            android:text="Charts and insights"
                             android:textSize="15sp"
                             android:textColor="#FFFFFF"
                             android:gravity="center"
@@ -274,7 +274,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/tileAbout"
+                android:id="@+id/tileSettings"
                 android:layout_width="0dp"
                 android:layout_height="200dp"
                 android:layout_weight="1"
@@ -306,7 +306,7 @@
                         <TextView
                             android:layout_width="64dp"
                             android:layout_height="64dp"
-                            android:text="ℹ️"
+                            android:text="⚙️"
                             android:textSize="40sp"
                             android:gravity="center"
                             android:background="@drawable/icon_background_purple"
@@ -315,7 +315,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="About"
+                            android:text="@string/settings"
                             android:textSize="20sp"
                             android:textStyle="bold"
                             android:textColor="@color/text_white"
@@ -326,7 +326,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Learn more about Habity"
+                            android:text="Configure app settings"
                             android:textSize="15sp"
                             android:textColor="#FFFFFF"
                             android:gravity="center"
@@ -343,9 +343,9 @@
 
         </LinearLayout>
 
-        <!-- Row 3: Add New Habit (full width) -->
+        <!-- Row 3: About -->
         <androidx.cardview.widget.CardView
-            android:id="@+id/tileAddHabit"
+            android:id="@+id/tileAbout"
             android:layout_width="match_parent"
             android:layout_height="140dp"
             app:cardCornerRadius="20dp"
@@ -365,14 +365,14 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="➕"
+                    android:text="ℹ️"
                     android:textSize="48sp"
                     android:layout_marginEnd="16dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Add New Habit"
+                    android:text="About WaterMark"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     android:textColor="@color/text_white"

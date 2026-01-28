@@ -12,20 +12,20 @@
     android:focusable="true">
 
     <TextView
-        android:id="@+id/tvCategory"
+        android:id="@+id/tvCategoryChip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingStart="20dp"
         android:paddingEnd="20dp"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp"
         android:text="Category"
         android:textSize="14sp"
         android:textStyle="bold"
         android:textColor="@color/text_primary"
         android:fontFamily="@font/font_family_poppins"
         android:background="@drawable/category_chip"
-        android:minHeight="40dp"
+        android:minHeight="44dp"
         android:gravity="center" />
 
 </androidx.cardview.widget.CardView>

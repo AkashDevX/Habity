@@ -2,6 +2,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- Permissions -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -10,11 +18,13 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.PasswordManager">
+        android:theme="@style/Theme.InventoryManager"
+        android:requestLegacyExternalStorage="true">
         
         <activity
-            android:name="com.passwordmanager.app.MainActivity"
-            android:exported="true">
+            android:name="com.inventorymanager.app.MainActivity"
+            android:exported="true"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -22,29 +32,24 @@
         </activity>
         
         <activity
-            android:name="com.passwordmanager.app.PinSetupActivity"
+            android:name="com.inventorymanager.app.AddEditItemActivity"
             android:exported="false"
-            android:theme="@style/Theme.PasswordManager" />
+            android:parentActivityName="com.inventorymanager.app.MainActivity" />
         
         <activity
-            android:name="com.passwordmanager.app.PinLockActivity"
+            android:name="com.inventorymanager.app.ItemDetailActivity"
             android:exported="false"
-            android:theme="@style/Theme.PasswordManager" />
+            android:parentActivityName="com.inventorymanager.app.MainActivity" />
         
-        <activity
-            android:name="com.passwordmanager.app.PasswordListActivity"
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
             android:exported="false"
-            android:parentActivityName="com.passwordmanager.app.MainActivity" />
-        
-        <activity
-            android:name="com.passwordmanager.app.AddEditPasswordActivity"
-            android:exported="false"
-            android:parentActivityName="com.passwordmanager.app.PasswordListActivity" />
-        
-        <activity
-            android:name="com.passwordmanager.app.CategoriesActivity"
-            android:exported="false"
-            android:parentActivityName="com.passwordmanager.app.PasswordListActivity" />
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
     </application>
 
 </manifest>

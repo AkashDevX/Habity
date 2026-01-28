@@ -1,3 +1,52 @@
 <resources>
-    <string name="app_name">Password Manager</string>
+    <string name="app_name">Inventory Manager</string>
+    
+    <!-- Main Activity -->
+    <string name="no_items">No Items Yet</string>
+    <string name="start_tracking">Start tracking your belongings\nby adding your first item</string>
+    
+    <!-- Add/Edit Item -->
+    <string name="add_item">Add Item</string>
+    <string name="edit_item">Edit Item</string>
+    <string name="item_name">Item Name</string>
+    <string name="category">Category</string>
+    <string name="quantity">Quantity</string>
+    <string name="price">Price</string>
+    <string name="notes">Notes</string>
+    <string name="tap_to_add_photo">Tap to add photo</string>
+    <string name="select_image">Select Image</string>
+    <string name="camera">Camera</string>
+    <string name="gallery">Gallery</string>
+    
+    <!-- Item Detail -->
+    <string name="delete_item">Delete Item</string>
+    <string name="delete_confirmation">Are you sure you want to delete this item?</string>
+    
+    <!-- Validation -->
+    <string name="enter_item_name">Please enter item name</string>
+    <string name="invalid_quantity">Invalid quantity</string>
+    <string name="invalid_price">Invalid price</string>
+    
+    <!-- Statistics -->
+    <string name="total_items">Total Items</string>
+    <string name="categories">Categories</string>
+    <string name="total_value">Total Value</string>
+    
+    <!-- Exit Dialog -->
+    <string name="exit_application">Exit Application</string>
+    <string name="exit_confirmation">Are you sure you want to exit?</string>
+    <string name="exit">Exit</string>
+    <string name="cancel">Cancel</string>
+    
+    <!-- Categories -->
+    <string-array name="categories">
+        <item>Electronics</item>
+        <item>Furniture</item>
+        <item>Books</item>
+        <item>Clothing</item>
+        <item>Appliances</item>
+        <item>Tools</item>
+        <item>Sports</item>
+        <item>Other</item>
+    </string-array>
 </resources>

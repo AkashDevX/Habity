@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme with Material 3 -->
-    <style name="Base.Theme.PasswordManager" parent="Theme.Material3.DayNight">
+    <style name="Base.Theme.InventoryManager" parent="Theme.Material3.DayNight">
         <!-- Primary Colors -->
         <item name="colorPrimary">@color/actionbar_start</item>
         <item name="colorOnPrimary">@color/text_white</item>
@@ -15,16 +15,20 @@
         <item name="colorOnSecondaryContainer">@color/accent_dark</item>
         
         <!-- Surface Colors -->
-        <item name="android:colorBackground">@color/background_light</item>
+        <item name="android:colorBackground">@color/surface</item>
         <item name="colorSurface">@color/surface</item>
         <item name="colorOnSurface">@color/text_primary</item>
         <item name="colorSurfaceVariant">@color/surface_variant</item>
         <item name="colorOnSurfaceVariant">@color/text_secondary</item>
         
         <!-- Status Bar -->
-        <item name="android:statusBarColor">@color/actionbar_end</item>
+        <item name="android:statusBarColor">@color/primary</item>
         <item name="android:windowLightStatusBar">false</item>
-        <item name="android:navigationBarColor">@color/background_light</item>
+        <item name="android:navigationBarColor">@color/surface</item>
+        
+        <!-- Material 3 Enhancements -->
+        <item name="android:windowSplashScreenBackground">@color/primary</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@mipmap/ic_launcher</item>
         
         <!-- Typography -->
         <item name="android:fontFamily">@font/font_family_poppins</item>
@@ -35,12 +39,12 @@
         <item name="windowNoTitle">false</item>
     </style>
 
-    <style name="Theme.PasswordManager" parent="Base.Theme.PasswordManager" />
+    <style name="Theme.InventoryManager" parent="Base.Theme.InventoryManager" />
     
-    <!-- Action Bar Style with Gradient -->
+    <!-- Action Bar Style -->
     <style name="ActionBarStyle" parent="Widget.AppCompat.ActionBar.Solid">
-        <item name="android:background">@drawable/gradient_actionbar</item>
-        <item name="background">@drawable/gradient_actionbar</item>
+        <item name="android:background">@color/primary</item>
+        <item name="background">@color/primary</item>
         <item name="titleTextStyle">@style/ActionBarTitle</item>
         <item name="android:elevation">8dp</item>
         <item name="elevation">8dp</item>

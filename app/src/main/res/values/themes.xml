@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme with Material 3 -->
-    <style name="Base.Theme.InventoryManager" parent="Theme.Material3.DayNight">
+    <style name="Base.Theme.CodeGuessGame" parent="Theme.Material3.DayNight">
         <!-- Primary Colors -->
         <item name="colorPrimary">@color/actionbar_start</item>
         <item name="colorOnPrimary">@color/text_white</item>
@@ -39,7 +39,7 @@
         <item name="windowNoTitle">false</item>
     </style>
 
-    <style name="Theme.InventoryManager" parent="Base.Theme.InventoryManager" />
+    <style name="Theme.CodeGuessGame" parent="Base.Theme.CodeGuessGame" />
     
     <!-- Action Bar Style -->
     <style name="ActionBarStyle" parent="Widget.AppCompat.ActionBar.Solid">

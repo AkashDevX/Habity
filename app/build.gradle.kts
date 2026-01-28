@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace = "com.inventorymanager.app"
+    namespace = "com.codeguessgame.app"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.inventorymanager.app"
+        applicationId = "com.codeguessgame.app"
         minSdk = 24
         targetSdk = 36
         versionCode = 1
@@ -41,27 +41,13 @@ dependencies {
     implementation(libs.recyclerview)
     implementation(libs.cardview)
     
-    // Room (for database)
-    implementation(libs.room.runtime)
-    annotationProcessor(libs.room.compiler)
-    
     // Lifecycle
     implementation(libs.lifecycle.viewmodel)
     implementation(libs.lifecycle.livedata)
     implementation(libs.lifecycle.runtime)
     
-    // Image loading
-    implementation("com.github.bumptech.glide:glide:4.16.0")
-    annotationProcessor("com.github.bumptech.glide:compiler:4.16.0")
-    
-    // Charts
-    implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
-    
-    // ViewPager2
-    implementation("androidx.viewpager2:viewpager2:1.1.0")
-    
-    // Fragment
-    implementation("androidx.fragment:fragment:1.8.0")
+    // SharedPreferences for daily challenge
+    implementation("androidx.preference:preference:1.2.1")
     
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)

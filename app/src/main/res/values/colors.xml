@@ -3,11 +3,13 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     
-    <!-- Professional Primary Colors - Deep Blue -->
-    <color name="primary">#2563EB</color>
-    <color name="primary_dark">#1E40AF</color>
-    <color name="primary_light">#3B82F6</color>
-    <color name="primary_variant">#1E3A8A</color>
+    <!-- Game Primary Colors - Vibrant Purple/Blue Gradient -->
+    <color name="primary">#6366F1</color>
+    <color name="primary_dark">#4F46E5</color>
+    <color name="primary_light">#818CF8</color>
+    <color name="primary_variant">#4338CA</color>
+    <color name="primary_gradient_start">#6366F1</color>
+    <color name="primary_gradient_end">#8B5CF6</color>
     
     <!-- Action Bar Colors -->
     <color name="actionbar_start">#2563EB</color>
@@ -61,6 +63,21 @@
     <color name="warning">#F59E0B</color>
     <color name="error">#EF4444</color>
     <color name="info">#3B82F6</color>
+    
+    <!-- Game Specific Colors -->
+    <color name="right_place">#10B981</color>
+    <color name="right_number">#F59E0B</color>
+    <color name="no_match_bg">#F1F5F9</color>
+    <color name="guess_badge_bg">#E0E7FF</color>
+    <color name="attempts_badge">#6366F1</color>
+    
+    <!-- Category Colors -->
+    <color name="category_easy">#10B981</color>
+    <color name="category_medium">#3B82F6</color>
+    <color name="category_hard">#EF4444</color>
+    <color name="category_daily">#F59E0B</color>
+    <color name="category_time">#8B5CF6</color>
+    <color name="category_expert">#DC2626</color>
     
     <!-- Card Colors -->
     <color name="card_shadow">#1A000000</color>

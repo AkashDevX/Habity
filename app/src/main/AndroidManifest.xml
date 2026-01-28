@@ -2,11 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
-    <uses-permission android:name="android.permission.USE_EXACT_ALARM" />
-
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -15,9 +10,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.CarMaintenance">
+        android:theme="@style/Theme.PasswordManager">
+        
         <activity
-            android:name="com.carmaintenance.tracker.DashboardActivity"
+            android:name="com.passwordmanager.app.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,57 +22,29 @@
         </activity>
         
         <activity
-            android:name="com.carmaintenance.tracker.StatsActivity"
+            android:name="com.passwordmanager.app.PinSetupActivity"
             android:exported="false"
-            android:parentActivityName="com.carmaintenance.tracker.DashboardActivity" />
+            android:theme="@style/Theme.PasswordManager" />
         
         <activity
-            android:name="com.carmaintenance.tracker.AboutActivity"
+            android:name="com.passwordmanager.app.PinLockActivity"
             android:exported="false"
-            android:parentActivityName="com.carmaintenance.tracker.DashboardActivity" />
+            android:theme="@style/Theme.PasswordManager" />
         
         <activity
-            android:name="com.carmaintenance.tracker.AddEditServiceActivity"
+            android:name="com.passwordmanager.app.PasswordListActivity"
             android:exported="false"
-            android:parentActivityName="com.carmaintenance.tracker.DashboardActivity" />
+            android:parentActivityName="com.passwordmanager.app.MainActivity" />
         
         <activity
-            android:name="com.carmaintenance.tracker.RemindersActivity"
+            android:name="com.passwordmanager.app.AddEditPasswordActivity"
             android:exported="false"
-            android:parentActivityName="com.carmaintenance.tracker.DashboardActivity" />
+            android:parentActivityName="com.passwordmanager.app.PasswordListActivity" />
         
         <activity
-            android:name="com.carmaintenance.tracker.ServiceHistoryActivity"
+            android:name="com.passwordmanager.app.CategoriesActivity"
             android:exported="false"
-            android:parentActivityName="com.carmaintenance.tracker.DashboardActivity" />
-        
-        <activity
-            android:name="com.carmaintenance.tracker.FuelLogActivity"
-            android:exported="false"
-            android:parentActivityName="com.carmaintenance.tracker.DashboardActivity" />
-        
-        <activity
-            android:name="com.carmaintenance.tracker.AddEditFuelActivity"
-            android:exported="false"
-            android:parentActivityName="com.carmaintenance.tracker.FuelLogActivity" />
-        
-        <!-- ReminderReceiver for handling alarm triggers -->
-        <receiver
-            android:name="com.carmaintenance.tracker.reminders.ReminderReceiver"
-            android:exported="false" />
-        
-        <!-- BootReceiver for rescheduling alarms after reboot -->
-        <receiver
-            android:name="com.carmaintenance.tracker.reminders.BootReceiver"
-            android:exported="false"
-            android:enabled="true"
-            android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </receiver>
+            android:parentActivityName="com.passwordmanager.app.PasswordListActivity" />
     </application>
 
 </manifest>

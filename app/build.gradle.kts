@@ -3,15 +3,15 @@ plugins {
 }
 
 android {
-    namespace = "com.carmaintenance.tracker"
+    namespace = "com.passwordmanager.app"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.carmaintenance.tracker"
+        applicationId = "com.passwordmanager.app"
         minSdk = 24
         targetSdk = 36
-        versionCode = 3
-        versionName = "3.0"
+        versionCode = 1
+        versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -39,7 +39,6 @@ dependencies {
     implementation(libs.activity)
     implementation(libs.constraintlayout)
     implementation(libs.recyclerview)
-    implementation(libs.gridlayout)
     
     // Room
     implementation(libs.room.runtime)

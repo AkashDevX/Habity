@@ -1,17 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.CarMaintenance" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Automotive Blue Theme -->
-        <item name="colorPrimary">@color/primary</item>
-        <item name="colorPrimaryVariant">@color/primary_dark</item>
+    <!-- Base application theme with Material 3 -->
+    <style name="Base.Theme.PasswordManager" parent="Theme.Material3.DayNight">
+        <!-- Primary Colors -->
+        <item name="colorPrimary">@color/actionbar_start</item>
         <item name="colorOnPrimary">@color/text_white</item>
+        <item name="colorPrimaryContainer">@color/primary_light</item>
+        <item name="colorOnPrimaryContainer">@color/primary_variant</item>
+        
+        <!-- Secondary Colors -->
         <item name="colorSecondary">@color/accent</item>
-        <item name="colorSecondaryVariant">@color/accent_dark</item>
         <item name="colorOnSecondary">@color/text_white</item>
-        <item name="android:statusBarColor">@color/primary</item>
-        <item name="android:navigationBarColor">@color/background_purple</item>
+        <item name="colorSecondaryContainer">@color/accent_light</item>
+        <item name="colorOnSecondaryContainer">@color/accent_dark</item>
+        
+        <!-- Surface Colors -->
+        <item name="android:colorBackground">@color/background_light</item>
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        <item name="colorSurfaceVariant">@color/surface_variant</item>
+        <item name="colorOnSurfaceVariant">@color/text_secondary</item>
+        
+        <!-- Status Bar -->
+        <item name="android:statusBarColor">@color/actionbar_end</item>
         <item name="android:windowLightStatusBar">false</item>
+        <item name="android:navigationBarColor">@color/background_light</item>
+        
+        <!-- Typography -->
+        <item name="android:fontFamily">@font/font_family_poppins</item>
+        
+        <!-- Action Bar -->
+        <item name="actionBarStyle">@style/ActionBarStyle</item>
+        <item name="windowActionBar">true</item>
+        <item name="windowNoTitle">false</item>
     </style>
 
-    <style name="Theme.CarMaintenance" parent="Base.Theme.CarMaintenance" />
+    <style name="Theme.PasswordManager" parent="Base.Theme.PasswordManager" />
+    
+    <!-- Action Bar Style with Gradient -->
+    <style name="ActionBarStyle" parent="Widget.AppCompat.ActionBar.Solid">
+        <item name="android:background">@drawable/gradient_actionbar</item>
+        <item name="background">@drawable/gradient_actionbar</item>
+        <item name="titleTextStyle">@style/ActionBarTitle</item>
+        <item name="android:elevation">8dp</item>
+        <item name="elevation">8dp</item>
+        <item name="android:height">64dp</item>
+        <item name="homeAsUpIndicator">@drawable/ic_arrow_back_white</item>
+    </style>
+    
+    <style name="ActionBarTitle">
+        <item name="android:textSize">22sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/font_family_poppins</item>
+        <item name="android:textColor">@color/text_white</item>
+        <item name="android:letterSpacing">0.02</item>
+    </style>
 </resources>

@@ -4,10 +4,29 @@
     <style name="CardTile">
         <item name="android:layout_margin">8dp</item>
         <item name="cardCornerRadius">16dp</item>
-        <item name="cardElevation">6dp</item>
+        <item name="cardElevation">4dp</item>
+        <item name="cardBackgroundColor">@color/background_card</item>
         <item name="android:clickable">true</item>
         <item name="android:focusable">true</item>
         <item name="android:foreground">?attr/selectableItemBackground</item>
+    </style>
+    
+    <style name="CardPassword">
+        <item name="cardCornerRadius">16dp</item>
+        <item name="cardElevation">6dp</item>
+        <item name="cardBackgroundColor">@color/background_card</item>
+        <item name="android:layout_marginHorizontal">12dp</item>
+        <item name="android:layout_marginVertical">6dp</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:foreground">?attr/selectableItemBackground</item>
+    </style>
+    
+    <!-- Alert Dialog Style -->
+    <style name="AlertDialogTheme" parent="Theme.Material3.DayNight.Dialog">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="android:textColorPrimary">@color/text_primary</item>
+        <item name="android:textColorSecondary">@color/text_secondary</item>
     </style>
     
     <!-- Text Styles -->
@@ -15,38 +34,63 @@
         <item name="android:textSize">28sp</item>
         <item name="android:fontFamily">@font/font_family_poppins</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/text_white</item>
+        <item name="android:textColor">@color/text_primary</item>
         <item name="android:fontWeight">700</item>
+        <item name="android:letterSpacing">-0.02</item>
     </style>
     
     <style name="TextSubtitle">
         <item name="android:textSize">14sp</item>
         <item name="android:fontFamily">@font/font_family_poppins</item>
-        <item name="android:textColor">@color/text_white_secondary</item>
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:fontWeight">400</item>
+    </style>
+    
+    <style name="TextHeading">
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">@font/font_family_poppins</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:fontWeight">600</item>
+    </style>
+    
+    <style name="TextBody">
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@font/font_family_poppins</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:fontWeight">400</item>
+    </style>
+    
+    <style name="TextCaption">
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">@font/font_family_poppins</item>
+        <item name="android:textColor">@color/text_secondary</item>
         <item name="android:fontWeight">400</item>
     </style>
     
     <!-- Button Styles -->
-    <style name="ButtonPrimary" parent="Widget.MaterialComponents.Button">
+    <style name="ButtonPrimary" parent="Widget.Material3.Button">
         <item name="android:textSize">16sp</item>
         <item name="android:fontFamily">@font/font_family_poppins</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:fontWeight">700</item>
+        <item name="android:fontWeight">600</item>
         <item name="android:padding">16dp</item>
         <item name="cornerRadius">12dp</item>
         <item name="backgroundTint">@color/primary</item>
-    </style>
-
-    <style name="AboutRow">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:padding">14dp</item>
-        <item name="android:textSize">15sp</item>
-        <item name="android:fontFamily">@font/font_family_poppins</item>
         <item name="android:textColor">@color/text_white</item>
-        <item name="android:background">?attr/selectableItemBackground</item>
-        <item name="android:fontWeight">400</item>
+        <item name="android:minHeight">56dp</item>
+    </style>
+    
+    <style name="ButtonSecondary" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@font/font_family_poppins</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontWeight">600</item>
+        <item name="android:padding">16dp</item>
+        <item name="cornerRadius">12dp</item>
+        <item name="strokeColor">@color/primary</item>
+        <item name="android:textColor">@color/primary</item>
+        <item name="android:minHeight">56dp</item>
     </style>
 
 </resources>
-

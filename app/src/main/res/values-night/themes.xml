@@ -1,15 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.CarMaintenance" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Automotive Blue Dark Theme -->
-        <item name="colorPrimary">@color/primary</item>
-        <item name="colorPrimaryVariant">@color/primary_dark</item>
+    <!-- Base application theme for dark mode -->
+    <style name="Base.Theme.PasswordManager" parent="Theme.Material3.DayNight">
+        <!-- Primary Colors -->
+        <item name="colorPrimary">@color/actionbar_dark_start</item>
         <item name="colorOnPrimary">@color/text_white</item>
-        <item name="colorSecondary">@color/accent</item>
-        <item name="colorSecondaryVariant">@color/accent_dark</item>
+        <item name="colorPrimaryContainer">@color/primary_variant</item>
+        <item name="colorOnPrimaryContainer">@color/primary_light</item>
+        
+        <!-- Secondary Colors -->
+        <item name="colorSecondary">@color/accent_light</item>
         <item name="colorOnSecondary">@color/text_white</item>
-        <item name="android:statusBarColor">@color/primary_dark</item>
-        <item name="android:navigationBarColor">#0F172A</item>
+        <item name="colorSecondaryContainer">@color/accent</item>
+        <item name="colorOnSecondaryContainer">@color/text_white</item>
+        
+        <!-- Surface Colors -->
+        <item name="android:colorBackground">@color/background_dark</item>
+        <item name="colorSurface">@color/background_card_dark</item>
+        <item name="colorOnSurface">@color/text_primary_dark</item>
+        <item name="colorSurfaceVariant">@color/background_card_dark</item>
+        <item name="colorOnSurfaceVariant">@color/text_secondary_dark</item>
+        
+        <!-- Status Bar -->
+        <item name="android:statusBarColor">@color/actionbar_dark_end</item>
         <item name="android:windowLightStatusBar">false</item>
+        <item name="android:navigationBarColor">@color/background_dark</item>
+        
+        <!-- Typography -->
+        <item name="android:fontFamily">@font/font_family_poppins</item>
+        
+        <!-- Action Bar -->
+        <item name="actionBarStyle">@style/ActionBarStyle</item>
+        <item name="windowActionBar">true</item>
+        <item name="windowNoTitle">false</item>
     </style>
 </resources>
